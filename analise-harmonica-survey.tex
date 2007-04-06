@@ -1,8 +1,8 @@
 \documentclass{article}
 \usepackage{icmc,amsmath}
 \usepackage{graphicx}
-
-\title{Paper Template for ICMC 2007}
+\title{A Survey of Automated Harmony Recognition and Tonality
+  Detection Techniques}
  
 % Single address
 % To use with only one author or several with the same address
@@ -32,22 +32,57 @@
 \begin{abstract}
 The abstract should be placed at the top left column and should contain
 about 150-200 words.
+
+The problems of automated harmony recognition and tonality detection
+have 
 \end{abstract}
 
-\section{Terminologia}
+\section{Terminology}
+
+
+% uma lista de possíveis termos a ser definidos, depois reduzir pra só
+% os relevantes e definí-los
+meter
+pitch
+segmentation
+tonality
+harmony
+melody
+neural network
+expert system
+pattern matching
+chord
+greedy algorithm
+island growing
+ornamental note
 % todos
 
 \section{algoritmos}
 % passos
-Pattern-matching over chord templates is used in \cite{prather96:harmonic}. A
-rule-based expert system approach is used in \cite{buzzanca01:rule},
-but for music style regognition. \cite{buzzanca02:supervised} uses a
-back-propagating neural network with far better effect.
+Pattern-matching over chord templates is used in
+\cite{prather96:harmonic} and \cite{barthelemy01:figured}, with the
+latter using a somewhat more complex model, possibly ignoring
+ornamental notes. A rule-based expert system approach is used in
+\cite{buzzanca01:rule}, but for music style
+regognition. \cite{buzzanca02:supervised} uses a back-propagating
+neural network with far better effect. \cite{wang97:generating} uses
+three passes for chord identification, all of them assuming a constant
+tonality, and consisting basically of pattern-matching on many
+levels. \cite{temperley99:modeling} uses a sophisticated
+preference-rule based expert system to identify the roots of the
+chords in a piece, but it avoids the problems of tonality detection
+and harmonic function identification.
+
+For tonality recognition, \cite{barthelemy01:figured} uses an ``island
+growing'' approach, a greedy algorithm that is based on the fact that
+every chord can be only part of a few tonalities and, detecting each
+of those for every chord, tries to merge them when possible, detecting
+a tonality change when a merge isn't possible.
 
 \section{tipos de resultado}
 % pedro
 
-\section{representação de altura e ritmo}
+\section{Meter and Pitch Representations}
 % pedro, passos
 In \cite{prather96:harmonic}, pitch height is ignored, as are accidents, and
 notes are represented as pitch classes only, ignoring extra
@@ -55,18 +90,27 @@ information presente in accidents. Meter, also, is widely simplified,
 being reduced to a percentage of time a given pitch class is sounding
 in a given measure. In \cite{buzzanca02:supervised}, meter is
 represented as the logarithm of beat length, ignoring most complex
-beats. 
+beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
+notes, even though the exact representation used is not
+discussed. MIDI input is used in \cite{wang97:generating}.
 
-\section{segmentação}
+\section{segmentation}
+
 % passos, pedro
 
-The segmentation problem, in a-329-prather.pdf, is approached in a
-simplified fasshion, with chords being assumed to change only in the
-beats of a given measure, and tonal information spread between two
-measures being ignored. bod01:memory.pdf proposes a memory-based
+The segmentation problem, in \cite{prather96:harmonic}, is approached
+in a simplified fashion, with chords being assumed to change only in
+the beats of a given measure, and tonal information spread between two 
+measures being ignored. \cite{bod01:memory} proposes a memory-based
 model, contrasting it with rule-based ones, with good results,
 although his approach to segmentation in unrelated to harmonic
-analysis, and thus not very relevant. 
+analysis, and thus not very relevant. \cite{barthelemy01:figured} uses
+melodic and harmonic information to construct the segmentation
+bottom-up, ie merging two adjacent segments if and only every sound of
+the first belongs in the second or if the union (with or without
+ornamental notes) of both segments can be exactly mapped onto a
+chord. The process starts with minimal segments and ends only when no
+more merges can be performed.
 
 
 \section{teoria dos conjuntos}
@@ -81,9 +125,9 @@ analysis, and thus not very relevant.
 \section{contexto}
 % marcos
 
-%\bibliographystyle{plain}
-%\bibliography{analise-harmonica-survey}
- 
+\bibliographystyle{plain}
+\bibliography{analise-harmonica-survey}
+\nocite{*} 
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
