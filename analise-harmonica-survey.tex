@@ -55,6 +55,7 @@ chord
 greedy algorithm
 island growing
 ornamental note
+music/harmonic context
 % todos
 
 \section{algoritmos}
@@ -122,12 +123,34 @@ more merges can be performed.
 \section{testes e comparação}
 % passos
 
-\section{contexto}
+\section{Harmonic Context}
 % marcos
+
+%% escrever: o que é contexto musical
+
+%% rever tradução para 'saída'
+The recent research projects that develop algorithms for automated
+harmonic analysis doesn't make use of the harmonic context. However
+the problems in out are, in most of cases related to context.
+
+The set of algorithms for automated chordal analysis developed by
+\cite{pardo02:algorithms} makes minimal use of harmonic context. The
+errors frequencies are classified and most of them is related to
+harmonic context, specifically non-chord notes and cadence
+recognition.  The authors agree that a deeper understanding about
+voice leading and the knowledge about neighbor chords would help to
+adjust chord-label weights.
+
+The automated harmonic analysis method developed by
+\cite{barthelemy01:figured} has a simple algorithm to process
+non-chord notes that produces errors. It consider that every non-chord
+note is followed by a conjunct movement. The authors show problems
+related to ambiguities, non-regularity of harmonic rhythm,
+non-universality of harmonic rules.
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica-survey}
-\nocite{*} 
+%\nocite{*} 
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
