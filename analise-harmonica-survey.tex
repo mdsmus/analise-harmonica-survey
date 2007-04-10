@@ -47,6 +47,7 @@ pitch
 segmentation
 tonality
 harmony
+hidden markov model
 melody
 neural network
 expert system
@@ -61,7 +62,7 @@ music/harmonic context
 \section{algoritmos}
 % passos
 Pattern-matching over chord templates is used in
-\cite{prather96:harmonic} and \cite{barthelemy01:figured}, with the
+\cite{prather96:harmonic}, \cite{pardo02:algorithms}, \cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
 latter using a somewhat more complex model, possibly ignoring
 ornamental notes. A rule-based expert system approach is used in
 \cite{buzzanca01:rule}, but for music style
@@ -72,13 +73,16 @@ tonality, and consisting basically of pattern-matching on many
 levels. \cite{temperley99:modeling} uses a sophisticated
 preference-rule based expert system to identify the roots of the
 chords in a piece, but it avoids the problems of tonality detection
-and harmonic function identification.
+and harmonic function identification.\cite{raphael03:harmonic} uses a
+hidden Markov model for chordal analysis and tonal recognition. 
+
 
 For tonality recognition, \cite{barthelemy01:figured} uses an ``island
 growing'' approach, a greedy algorithm that is based on the fact that
 every chord can be only part of a few tonalities and, detecting each
 of those for every chord, tries to merge them when possible, detecting
 a tonality change when a merge isn't possible.
+
 
 \section{tipos de resultado}
 % pedro
@@ -93,7 +97,15 @@ in a given measure. In \cite{buzzanca02:supervised}, meter is
 represented as the logarithm of beat length, ignoring most complex
 beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
 notes, even though the exact representation used is not
-discussed. MIDI input is used in \cite{wang97:generating}.
+discussed. MIDI input is used in
+\cite{wang97:generating} and
+\cite{raphael03:harmonic}. \cite{pachet96representing} describes a
+codification for polyphonic tonal music, but makes no concrete claims
+towards its applicability in harmonic
+analysis. \cite{pardo02:algorithms}, \cite{pardo99:automated} uses a
+simplistic system, representing pitches only as pitch classes,
+ignoring meter and all forms of context information, with the
+intention of providing a basis for sutdy of better algorithms.
 
 \section{segmentation}
 
@@ -111,7 +123,10 @@ bottom-up, ie merging two adjacent segments if and only every sound of
 the first belongs in the second or if the union (with or without
 ornamental notes) of both segments can be exactly mapped onto a
 chord. The process starts with minimal segments and ends only when no
-more merges can be performed.
+more merges can be performed. \cite{pardo02:algorithms} and
+\cite{pardo99:automated} perform segmentation backwards, by comparing
+all possible (or likely, in another version of the algorithm)
+segmentations, choosing the ones that better match chord templates.
 
 
 \section{teoria dos conjuntos}
@@ -134,7 +149,7 @@ harmonic analysis doesn't make use of the harmonic context. However
 the problems in out are, in most of cases related to context.
 
 The set of algorithms for automated chordal analysis developed by
-\cite{pardo02:algorithms} makes minimal use of harmonic context. The
+\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal use of harmonic context. The
 errors frequencies are classified and most of them is related to
 harmonic context, specifically non-chord notes and cadence
 recognition.  The authors agree that a deeper understanding about
