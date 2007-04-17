@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{icmc,amsmath}
 \usepackage{graphicx}
+\usepackage[T1]{fontenc}
+
 \title{A Survey of Automated Harmony Recognition and Tonality
   Detection Techniques}
  
@@ -36,6 +38,76 @@ about 150-200 words.
 The problems of automated harmony recognition and tonality detection
 have 
 \end{abstract}
+
+\section{Introduction}
+\label{sec:introduction}
+
+%%% kroger:  basicamente falar que mir is a hot topic
+Music information retrieval .... Some research focus on music
+retrieval by query-by-humming
+\cite{hu02comparison,pickens02:polyphonic,cano02:use}, in the
+development of tools for digital libraries
+\cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, in the
+detection of musical patters
+\cite{lartillot-nakamura03:discovering,dannenberg02:pattern,lartillot02:integrating}
+that may help, among other things, to help identifying musical styles
+\cite{dixon03:classification,pampalk03:exploring,rauber02:using}, and
+in problems related to musical representation
+\cite{lee02:representing,good00:representing,rol00:xml4mir}.
+
+While the main goal in music information retrieval `` is not an
+understanding of music. It is not to develop a better theory of music,
+or even to analyze music. The goal is retrieval''
+\cite{pickens01:survey}, others researchers seek a better
+understanding of elements and musical processes trough the automatic
+analysis by a computer. We agree with Mouton that ``only automatic
+analysis of a large corpus of tonal music may eventually provide us
+(the human) with insights on the very nature of tonal music''
+\cite{mouton95:numeric}. Computer-based musical analysis is important
+because it can bring new insights in this area, in the same way the
+use of the computer in vision and problem solving brought new insights
+these areas \cite{temperley99:modeling}.
+
+%%% kroger: scoring = arranjo?
+There are many practical aplications for automatic music analysis,
+among then are automated scoring, detection of posible logical
+mistakes in scores, database search, automatic accompaniment
+generation, and statitical analysis of musical styles for automated
+composition \cite{pardo02:algorithms,temperley99:modeling}. Raphael and
+%%% kroger: passive voice sucks badly
+Stoddard emphasize the kinds of searches that can be made, where
+
+\begin{quote}
+  the most obvious application of harmonic analysis in music
+  information retrieval (MIR) would treat queries phrased in the
+  language of harmony: What are the earliest examples of the use of
+  German augmented sixth chords or Neapolitan chords? Which Beatles
+  songs have deceptive cadences? Where can I buy the piece I heard on
+  the radio with the harmonic progression I vi IV V I repeated many
+  times? It is likely that such applications will be most useful to
+  musicologists since the mere formulation of such queries requires a
+  more sophisticated understanding of harmony than would be expected
+  of an average music enthusiast. \cite{raphael03:harmonic}
+\end{quote}
+
+By definition, automated harmony analysis must be done completely by
+computer programs, without human intervention. Typically the system
+accepts as input musical data in some format (such as MIDI, scores in
+symbolic or numeric format, and so on) and returns as result
+%%% kroger: tipo de acordes em ingles?
+information such as chords roots, chords types, or symbols indicating
+the tonal function. In this paper the terms ``analysis'' and
+``harmonic analysis'' will be loosely used to mean automated harmonic
+analysis by computer.
+
+\section{The problem}
+\label{sec:problem}
+
+A análise automática é uma tarefa complexa por diversas razões; o
+material musical é composto de uma grande variadade de informações
+(timbre, notas, ritmo, dinâmica, harmonia) e pelo fato de música ser
+um processo temporal, diferentemente de imagem, por exemplo
+\cite{mouton95:numeric}. 
 
 \section{Terminology}
 
@@ -86,28 +158,41 @@ merge isn't possible. \cite{temperley04:bayesian} uses a bayesian
 model for key recognition.
 
 
-\section{tipos de resultado}
+\section{Tipos de resultado}
 % pedro
 
 \section{Meter and Pitch Representations}
 % pedro, passos
-In \cite{prather96:harmonic}, pitch height is ignored, as are accidents, and
-notes are represented as pitch classes only, ignoring extra
-information presente in accidents. Meter, also, is widely simplified,
-being reduced to a percentage of time a given pitch class is sounding
-in a given measure. In \cite{buzzanca02:supervised}, meter is
-represented as the logarithm of beat length, ignoring most complex
+In \cite{prather96:harmonic}, pitch height is ignored, as are
+accidents, and notes are represented as pitch classes only, ignoring
+extra information presente in accidents. Meter, also, is widely
+simplified, being reduced to a percentage of time a given pitch class
+is sounding in a given measure. In \cite{buzzanca02:supervised}, meter
+is represented as the logarithm of beat length, ignoring most complex
 beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
-notes, even though the exact representation used is not
-discussed. MIDI input is used in
-\cite{wang97:generating} and
+notes, even though the exact representation used is not discussed.
+MIDI input is used in \cite{wang97:generating} and
 \cite{raphael03:harmonic}. \cite{pachet96representing} describes a
 codification for polyphonic tonal music, but makes no concrete claims
-towards its applicability in harmonic
-analysis. \cite{pardo02:algorithms}, \cite{pardo99:automated} uses a
-simplistic system, representing pitches only as pitch classes,
-ignoring meter and all forms of context information, with the
-intention of providing a basis for sutdy of better algorithms.
+towards its applicability in harmonic analysis.
+\cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
+system, representing pitches only as pitch classes, ignoring meter and
+all forms of context information, with the intention of providing a
+basis for sutdy of better algorithms.
+
+alguns sistemas numéricos foram elaborados para manter as
+características da música tonal como \cite{hewlett92:base40} e
+\cite{oliveira01:codificacao}, sendo que esse último apresenta uma
+solução bastante elegante baseada em um módulo 96, sendo fácil de
+mapear para a representação de módulo 12. Nós acreditamos que a
+pesquisa em análise harmônica poderia ser grandemente simplificada
+pelo uso desses sistemas.
+
+O problema de não levar em consideração as diferenças enarmônicas é
+que acordes que possuem a mesma sonoridade mas tem função tonal
+diferente não serão detectados, como o acorde de sexta alemã. Em
+\cite{pardo02:algorithms}, por exemplo, um acorde de sexta alemã é
+erroneamente classificado como um acorde de sétima da dominante.  
 
 \section{segmentation}
 
