@@ -132,31 +132,62 @@ island growing
 ornamental note
 music/harmonic context
 
-\section{algoritmos}
-% passos
+\section{algorithms}
+
+Many approaches related to the fields of artificial intelligence,
+machine learning and pattern recognition have been applied to the
+field of automated harmonic analysis. Roughly speaking, they may be
+subdivided in two areas, one concerned with computerized
+representation of harmonic rules and the other with inference of said
+rules from probabilistic models. They are, respectively, the
+deterministic and the probabilistic approach.
+
+\subsection{Deterministic/Expert System Approaches}
+
+Rule-based expert systems abound in the field of artificial
+intelligence, so it is only natural that they should be the first
+attempt at codifying musical theory in a format deemed proper for a
+computer to make automated analysis.
+
 Pattern-matching over chord templates is used in
-\cite{prather96:harmonic}, \cite{pardo02:algorithms}, \cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
-latter using a somewhat more complex model, possibly ignoring
+\cite{prather96:harmonic}, \cite{pardo02:algorithms},
+\cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
+latter using a somewhat more complex model, being capable of ignoring
 ornamental notes. A rule-based expert system approach is used in
 \cite{buzzanca01:rule}, but for music style
-regognition. \cite{buzzanca02:supervised} uses a back-propagating
-neural network with far better effect. \cite{wang97:generating} uses
-three passes for chord identification, all of them assuming a constant
-tonality, and consisting basically of pattern-matching on many
+regognition. \cite{wang97:generating} uses three passes for chord
+identification, all of them assuming a constant tonality, and
+consisting basically of pattern-matching on many
 levels. \cite{temperley99:modeling} uses a sophisticated
 preference-rule based expert system to identify the roots of the
 chords in a piece, but it avoids the problems of tonality detection
-and harmonic function identification.\cite{raphael03:harmonic} uses a
-hidden Markov model for chordal analysis and tonal recognition. 
-
+and harmonic function identification.
 
 For tonality recognition, \cite{barthelemy01:figured} and
 \cite{mouton95:numeric} use an ``island growing'' approach, a greedy
 algorithm that is based on the fact that every chord can be only part
 of a few tonalities and, detecting each of those for every chord,
 tries to merge them when possible, detecting a tonality change when a
-merge isn't possible. \cite{temperley04:bayesian} uses a bayesian
-model for key recognition.
+merge isn't possible. 
+
+%%
+%% Nota: o artigo de winograd foi muito citado. Ele deveria constar
+%%       na nossa bibliografia? Posso comentar por terceiros a
+%%       abordagem dele, se for o caso.
+
+\subsection{Probabilistic Approaches}
+
+
+Probabilistic and statistical models for automated harmonic analysis
+are few, and far in between, but they have made promising
+results. \cite{tsui02:_harmon_analy_using_neural_networ} and
+\cite{buzzanca02:supervised} use back-propagating neural networks with
+far better results. \cite{raphael03:harmonic} uses a hidden Markov
+model for chordal analysis and tonal recognition.
+\cite{noland.sandler:key} also uses a Hidden Markov model, but the
+states represent possible keys and the inputs are the chord
+changes. \cite{temperley04:bayesian} uses a bayesian model for key
+recognition.
 
 
 \section{Tipos de resultado}
@@ -180,7 +211,10 @@ towards its applicability in harmonic analysis.
 \cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
 system, representing pitches only as pitch classes, ignoring meter and
 all forms of context information, with the intention of providing a
-basis for sutdy of better algorithms.
+basis for sutdy of better
+algorithms. \cite{tsui02:_harmon_analy_using_neural_networ} and other
+systems differentiate in importance notes having different meter
+strength.
 
 alguns sistemas numéricos foram elaborados para manter as
 características da música tonal como \cite{hewlett92:base40} e
@@ -237,12 +271,12 @@ harmonic analysis doesn't make use of the harmonic context. However
 the problems in out are, in most of cases related to context.
 
 The set of algorithms for automated chordal analysis developed by
-\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal use of harmonic context. The
-errors frequencies are classified and most of them is related to
-harmonic context, specifically non-chord notes and cadence
-recognition.  The authors agree that a deeper understanding about
-voice leading and the knowledge about neighbor chords would help to
-adjust chord-label weights.
+\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal
+use of harmonic context. The errors frequencies are classified and
+most of them is related to harmonic context, specifically non-chord
+notes and cadence recognition.  The authors agree that a deeper
+understanding about voice leading and the knowledge about neighbor
+chords would help to adjust chord-label weights.
 
 The automated harmonic analysis method developed by
 \cite{barthelemy01:figured} has a simple algorithm to process
