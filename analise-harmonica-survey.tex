@@ -44,6 +44,10 @@ have
 \label{sec:introduction}
 % pedro
 
+\subsection{Introduction}
+\label{sec:introduction-1}
+
+
 %%% kroger:  basicamente falar que mir is a hot topic
 Music information retrieval .... Some research focus on music
 retrieval by query-by-humming
@@ -102,7 +106,12 @@ the tonal function. In this paper the terms ``analysis'' and
 ``harmonic analysis'' will be loosely used to mean automated harmonic
 analysis by computer.
 
+\subsection{The problem}
+\label{sec:problem}
+
 %% TODO
+%% o problema geral
+
 Alguns sistema geram acompanhamento on the fly
 \cite{cunha99:intelligent,cunha99:intelligent}, outros lidam com
 harmonização \cite{allan05:harmonizing}. o objetivo desse artigo e a
@@ -112,67 +121,18 @@ análise de trechos musicais simbolicos.
 \cite{barthelemy01:figured} is probably the most complet survey to
 this date.
 
-\section{Terminology}
-% todos
-
-% uma lista de possíveis termos a ser definidos, depois reduzir pra só
-% os relevantes e definí-los
-meter
-pitch
-segmentation
-tonality
-harmony
-hidden markov model
-melody
-neural network
-expert system
-pattern matching
-chord
-greedy algorithm
-island growing
-ornamental note
-music/harmonic context
-Forma prima.
-  Uma maneira de representar a classe de
-  conjunto de uma maneira compacta e não-ambígua.
-Vetor intervalar.
-Uma representação compactada contendo
-  todos os intervalos em um conjunto.
-Número de classificação de Allen Forte.
-Classificação
-  usando dois dígitos proposta por Allen Forte para todas as classes
-  de conjuntos. O primeiro dígito indica a quantidade de notas no
-  conjunto e o segundo sua posição na lista de classes de conjuntos.
-
-\section{algoritmos}
-% passos
-Pattern-matching over chord templates is used in
-\cite{prather96:harmonic}, \cite{pardo02:algorithms}, \cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
-latter using a somewhat more complex model, possibly ignoring
-ornamental notes. A rule-based expert system approach is used in
-\cite{buzzanca01:rule}, but for music style
-regognition. \cite{buzzanca02:supervised} uses a back-propagating
-neural network with far better effect. \cite{wang97:generating} uses
-three passes for chord identification, all of them assuming a constant
-tonality, and consisting basically of pattern-matching on many
-levels. \cite{temperley99:modeling} uses a sophisticated
-preference-rule based expert system to identify the roots of the
-chords in a piece, but it avoids the problems of tonality detection
-and harmonic function identification.\cite{raphael03:harmonic} uses a
-hidden Markov model for chordal analysis and tonal recognition. 
+\subsection{Historic context}
+\label{sec:historic-context}
 
 
-For tonality recognition, \cite{barthelemy01:figured} and
-\cite{mouton95:numeric} use an ``island growing'' approach, a greedy
-algorithm that is based on the fact that every chord can be only part
-of a few tonalities and, detecting each of those for every chord,
-tries to merge them when possible, detecting a tonality change when a
-merge isn't possible. \cite{temperley04:bayesian} uses a bayesian
-model for key recognition.
+\subsection{The harmonic context}
+\label{sec:harmonic-context}
+
+\subsection{Harmonic segmentation}
+\label{sec:harm-segm}
 
 
-\section{Tipos de resultado}
-% pedro
+\section{Representation}
 
 Probably the most basic kind of output is the key of a musical
 passage. Most recent research on estimation of musical keys is
@@ -210,8 +170,6 @@ a more verbose notation like
  :type diminished)
 \end{verbatim}
 
-\section{Meter and Pitch Representations}
-% pedro, passos
 
 In \cite{prather96:harmonic}, pitch height is ignored, as are
 accidents, and notes are represented as pitch classes only, ignoring
@@ -244,7 +202,34 @@ diferente não serão detectados, como o acorde de sexta alemã. Em
 \cite{pardo02:algorithms}, por exemplo, um acorde de sexta alemã é
 erroneamente classificado como um acorde de sétima da dominante.  
 
-\section{segmentation}
+\section{Algoritmos}
+% passos
+Pattern-matching over chord templates is used in
+\cite{prather96:harmonic}, \cite{pardo02:algorithms}, \cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
+latter using a somewhat more complex model, possibly ignoring
+ornamental notes. A rule-based expert system approach is used in
+\cite{buzzanca01:rule}, but for music style
+regognition. \cite{buzzanca02:supervised} uses a back-propagating
+neural network with far better effect. \cite{wang97:generating} uses
+three passes for chord identification, all of them assuming a constant
+tonality, and consisting basically of pattern-matching on many
+levels. \cite{temperley99:modeling} uses a sophisticated
+preference-rule based expert system to identify the roots of the
+chords in a piece, but it avoids the problems of tonality detection
+and harmonic function identification.\cite{raphael03:harmonic} uses a
+hidden Markov model for chordal analysis and tonal recognition. 
+
+
+For tonality recognition, \cite{barthelemy01:figured} and
+\cite{mouton95:numeric} use an ``island growing'' approach, a greedy
+algorithm that is based on the fact that every chord can be only part
+of a few tonalities and, detecting each of those for every chord,
+tries to merge them when possible, detecting a tonality change when a
+merge isn't possible. \cite{temperley04:bayesian} uses a bayesian
+model for key recognition.
+
+
+\section{Segmentation}
 % passos
 
 The segmentation problem, in \cite{prather96:harmonic}, is approached
@@ -276,42 +261,29 @@ including chord detection.
 
 seção 3.1 de \cite{byrd02:problems}
 
-\section{teoria dos conjuntos}
-% givaldo
+\section{Harmonic Context}
+% marcos
 
-\cite{taneyev62:counterpoint}
+%% escrever: o que é contexto musical
 
-Ainda que existam modelos matemáticos para a análise harmônica, ainda
-não é claro na literatura (tanto musical quando de MIR) se uma
-abordagem utilizando a teoria dos conjuntos pode contribuir para a
-solução do problema. Até onde sabemos, não existem trabalhos
-significativos na literatura da análise harmônica automática em que a
-teoria dos conjuntos seja abordada de maneira aprofundada.
-\cite{pardo02:algorithms} usa tuplas com representação numérica das
-alturas, formando templates. Ao que parece ele define todas as
-transposições possíveis como templates, quando seria mais prático
-calcular através da forma prima. Ele relaciona os templates com a
-teoria dos conjuntos mas não a usa de forma explícita (i.e. forma
-prima, vetores de índice, etc).
+The recent research projects that develop algorithms for automated
+harmonic analysis doesn't make use of the harmonic context. However
+the problems in output are, in most of cases related to context.
 
-Uma abordagem de análise harmônica que utilize somente a teoria dos
-conjuntos será de pouca utilidade, dado ao caráter reducionista dessa
-teoria. Por exemplo, cada acorde na sequência Do menor, Sol maior, Do
-menor tem a mesma \textbf{forma prima}, (0,3,7) e, consequentemente, o
-mesmo \textbf{número de classificação de Allen Forte}, 3-11. Dessa
-maneira, uma redução analítica harmônica pela teoria dos conjuntos
-perderia informações importantes como a \emph{qualidade dos acordes}.
-Contudo procedimentos como o vetor intervalar e operações de extração
-de sub-conjuntos podem ajudar a identificar os elementos harmônicos
-dos não-harmônicos. O vetor intervalar lista todos os intervalos de um
-conjunto, fornecendo uma indicação confiável da sonoridade do
-conjunto.
+The set of algorithms for automated chordal analysis developed by
+\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal
+use of harmonic context. The errors frequencies are classified and
+most of them is related to harmonic context, specifically non-chord
+notes and cadence recognition.  The authors agree that a deeper
+understanding about voice leading and the knowledge about neighbor
+chords would help to adjust chord-label weights.
 
-ver \cite{conklin02:representation}
-
-
-\section{teoria musical (contexto)}
-% givaldo
+The automated harmonic analysis method developed by
+\cite{barthelemy01:figured} has a simple algorithm to process
+non-chord notes that produces errors. It consider that every non-chord
+note is followed by a conjunct movement. The authors show problems
+related to ambiguities, non-regularity of harmonic rhythm,
+non-universality of harmonic rules.
 
 John Rothgeb foi um dos primeiros a lidar com o problema da
 harmonização automática \cite{rothgeb68:harmonizing}, nesse caso o
@@ -321,8 +293,7 @@ cifrado). Ele implementou em computador regras de tratados do século
 XVIII e logo ficou claro que os tratados não forneciam detalhes
 completos o suficiente \cite{rothgeb79:simulating}.
 
-\section{testes e comparação}
-% pedro
+\section{Tests and benchmarks}
 
 %% TODO: citar
 Normaly work with an pre-maid answer key that sever as bechmarking.
@@ -370,29 +341,40 @@ from polyphonic symbolic collections using polyphonic audio queries.
 It also uses a large corpus of music, 3150 pieces.
 \cite{pickens02:harmonic} also uses this large corpus
 
-\section{Harmonic Context}
-% marcos
+\section{Conclusion and discussion}
+\label{sec:concl-disc}
 
-%% escrever: o que é contexto musical
+%%% metodos matematicos
 
-The recent research projects that develop algorithms for automated
-harmonic analysis doesn't make use of the harmonic context. However
-the problems in output are, in most of cases related to context.
+\cite{taneyev62:counterpoint}
 
-The set of algorithms for automated chordal analysis developed by
-\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal
-use of harmonic context. The errors frequencies are classified and
-most of them is related to harmonic context, specifically non-chord
-notes and cadence recognition.  The authors agree that a deeper
-understanding about voice leading and the knowledge about neighbor
-chords would help to adjust chord-label weights.
+Ainda que existam modelos matemáticos para a análise harmônica, ainda
+não é claro na literatura (tanto musical quando de MIR) se uma
+abordagem utilizando a teoria dos conjuntos pode contribuir para a
+solução do problema. Até onde sabemos, não existem trabalhos
+significativos na literatura da análise harmônica automática em que a
+teoria dos conjuntos seja abordada de maneira aprofundada.
+\cite{pardo02:algorithms} usa tuplas com representação numérica das
+alturas, formando templates. Ao que parece ele define todas as
+transposições possíveis como templates, quando seria mais prático
+calcular através da forma prima. Ele relaciona os templates com a
+teoria dos conjuntos mas não a usa de forma explícita (i.e. forma
+prima, vetores de índice, etc).
 
-The automated harmonic analysis method developed by
-\cite{barthelemy01:figured} has a simple algorithm to process
-non-chord notes that produces errors. It consider that every non-chord
-note is followed by a conjunct movement. The authors show problems
-related to ambiguities, non-regularity of harmonic rhythm,
-non-universality of harmonic rules.
+Uma abordagem de análise harmônica que utilize somente a teoria dos
+conjuntos será de pouca utilidade, dado ao caráter reducionista dessa
+teoria. Por exemplo, cada acorde na sequência Do menor, Sol maior, Do
+menor tem a mesma \textbf{forma prima}, (0,3,7) e, consequentemente, o
+mesmo \textbf{número de classificação de Allen Forte}, 3-11. Dessa
+maneira, uma redução analítica harmônica pela teoria dos conjuntos
+perderia informações importantes como a \emph{qualidade dos acordes}.
+Contudo procedimentos como o vetor intervalar e operações de extração
+de sub-conjuntos podem ajudar a identificar os elementos harmônicos
+dos não-harmônicos. O vetor intervalar lista todos os intervalos de um
+conjunto, fornecendo uma indicação confiável da sonoridade do
+conjunto.
+
+ver \cite{conklin02:representation}
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
@@ -400,3 +382,35 @@ non-universality of harmonic rules.
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
+
+\section{Terminology}
+% todos
+
+% uma lista de possíveis termos a ser definidos, depois reduzir pra só
+% os relevantes e definí-los
+meter
+pitch
+segmentation
+tonality
+harmony
+hidden markov model
+melody
+neural network
+expert system
+pattern matching
+chord
+greedy algorithm
+island growing
+ornamental note
+music/harmonic context
+Forma prima.
+  Uma maneira de representar a classe de
+  conjunto de uma maneira compacta e não-ambígua.
+Vetor intervalar.
+Uma representação compactada contendo
+  todos os intervalos em um conjunto.
+Número de classificação de Allen Forte.
+Classificação
+  usando dois dígitos proposta por Allen Forte para todas as classes
+  de conjuntos. O primeiro dígito indica a quantidade de notas no
+  conjunto e o segundo sua posição na lista de classes de conjuntos.
