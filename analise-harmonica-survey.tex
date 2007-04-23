@@ -2,6 +2,7 @@
 \usepackage{icmc,amsmath}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
+\usepackage{url}
 
 \title{A Survey of Automated Harmony Recognition and Tonality
   Detection Techniques}
@@ -42,6 +43,10 @@ have
 \section{Introduction}
 \label{sec:introduction}
 % pedro
+
+\subsection{Introduction}
+\label{sec:introduction-1}
+
 
 %%% kroger:  basicamente falar que mir is a hot topic
 Music information retrieval .... Some research focus on music
@@ -101,39 +106,111 @@ the tonal function. In this paper the terms ``analysis'' and
 ``harmonic analysis'' will be loosely used to mean automated harmonic
 analysis by computer.
 
-\section{The problem}
+\subsection{The problem}
 \label{sec:problem}
-%% pedro: dividir
 
-A análise automática é uma tarefa complexa por diversas razões; o
-material musical é composto de uma grande variadade de informações
-(timbre, notas, ritmo, dinâmica, harmonia) e pelo fato de música ser
-um processo temporal, diferentemente de imagem, por exemplo
-\cite{mouton95:numeric}. 
 
-\section{Terminology}
-% todos
 
-% uma lista de possíveis termos a ser definidos, depois reduzir pra só
-% os relevantes e definí-los
-meter
-pitch
-segmentation
-tonality
-harmony
-hidden markov model
-melody
-neural network
-expert system
-pattern matching
-chord
-greedy algorithm
-island growing
-ornamental note
-music/harmonic context
+\section{Tipos de resultado}
+% pedro
+=======
+%% TODO
+%% o problema geral
 
-\section{algorithms}
+Alguns sistema geram acompanhamento on the fly
+\cite{cunha99:intelligent,cunha99:intelligent}, outros lidam com
+harmonização \cite{allan05:harmonizing}. o objetivo desse artigo e a
+análise de trechos musicais simbolicos.
 
+% TODO
+\cite{barthelemy01:figured} is probably the most complet survey to
+this date.
+
+\subsection{Historic context}
+\label{sec:historic-context}
+
+
+\subsection{The harmonic context}
+\label{sec:harmonic-context}
+
+\subsection{Harmonic segmentation}
+\label{sec:harm-segm}
+
+
+\section{Representation}
+
+Probably the most basic kind of output is the key of a musical
+passage. Most recent research on estimation of musical keys is
+concerned with the analysis of audio signal
+\cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
+analysis focus on translating the analysis result to another medium.
+For instance, \cite{wang97:generating} generates a 6-line guitar score
+(tablature) (with the chords names on top of it) from the analysis of
+a MIDI input. The system described in \cite{pachet00:computer} outputs
+not only the chords names (e.g. Db7) but some functions used in jazz
+harmony like ``modal borrowing'' and ``tritone substitution''. The
+analysis results from \cite{barthelemy01:figured} is in the form of
+figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and $^6_5$. Most systems
+uses the chords names like A$\flat$7, D$\flat$min, and so on
+\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}.
+\cite{Ulrich77IJ} performs a functional analysis of chords, indicating
+things like ``tonic of G'', ``substitute for x+2'', and so on. 
+%% precisa checar
+But no system seems to generate a functional analysis like ii$^6_6$,
+V7, and so on.
+
+\cite{harte.sandler.ea:symbolic} suggests a unambiguous notation for
+chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
+Since this notation is too verbose, the author himself proposes a
+shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
+proposed a notation for chords using a list in the format
+\texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
+could be notated as \texttt{(g major 7 1)}. This notation also admits
+a more verbose notation like 
+
+\begin{verbatim}
+(:fundamental g
+ :added-note 7
+ :inversion first
+ :type diminished)
+\end{verbatim}
+
+
+In \cite{prather96:harmonic}, pitch height is ignored, as are
+accidents, and notes are represented as pitch classes only, ignoring
+extra information presente in accidents. Meter, also, is widely
+simplified, being reduced to a percentage of time a given pitch class
+is sounding in a given measure. In \cite{buzzanca02:supervised}, meter
+is represented as the logarithm of beat length, ignoring most complex
+beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
+notes, even though the exact representation used is not discussed.
+MIDI input is used in \cite{wang97:generating} and
+\cite{raphael03:harmonic}. \cite{pachet96representing} describes a
+codification for polyphonic tonal music, but makes no concrete claims
+towards its applicability in harmonic analysis.
+\cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
+system, representing pitches only as pitch classes, ignoring meter and
+all forms of context information, with the intention of providing a
+basis for sutdy of better
+algorithms. \cite{tsui02:_harmon_analy_using_neural_networ} and other
+systems differentiate in importance notes having different meter
+strength.
+
+alguns sistemas numéricos foram elaborados para manter as
+características da música tonal como \cite{hewlett92:base40} e
+\cite{oliveira01:codificacao}, sendo que esse último apresenta uma
+solução bastante elegante baseada em um módulo 96, sendo fácil de
+mapear para a representação de módulo 12. Nós acreditamos que a
+pesquisa em análise harmônica poderia ser grandemente simplificada
+pelo uso desses sistemas.
+
+O problema de não levar em consideração as diferenças enarmônicas é
+que acordes que possuem a mesma sonoridade mas tem função tonal
+diferente não serão detectados, como o acorde de sexta alemã. Em
+\cite{pardo02:algorithms}, por exemplo, um acorde de sexta alemã é
+erroneamente classificado como um acorde de sétima da dominante.  
+
+\section{Algoritmos}
 Many approaches related to the fields of artificial intelligence,
 machine learning and pattern recognition have been applied to the
 field of automated harmonic analysis. Roughly speaking, they may be
@@ -190,47 +267,8 @@ changes. \cite{temperley04:bayesian} uses a bayesian model for key
 recognition.
 
 
-\section{Tipos de resultado}
-% pedro
 
-\section{Meter and Pitch Representations}
-% pedro, passos
-
-In \cite{prather96:harmonic}, pitch height is ignored, as are
-accidents, and notes are represented as pitch classes only, ignoring
-extra information presente in accidents. Meter, also, is widely
-simplified, being reduced to a percentage of time a given pitch class
-is sounding in a given measure. In \cite{buzzanca02:supervised}, meter
-is represented as the logarithm of beat length, ignoring most complex
-beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
-notes, even though the exact representation used is not discussed.
-MIDI input is used in \cite{wang97:generating} and
-\cite{raphael03:harmonic}. \cite{pachet96representing} describes a
-codification for polyphonic tonal music, but makes no concrete claims
-towards its applicability in harmonic analysis.
-\cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
-system, representing pitches only as pitch classes, ignoring meter and
-all forms of context information, with the intention of providing a
-basis for sutdy of better
-algorithms. \cite{tsui02:_harmon_analy_using_neural_networ} and other
-systems differentiate in importance notes having different meter
-strength.
-
-alguns sistemas numéricos foram elaborados para manter as
-características da música tonal como \cite{hewlett92:base40} e
-\cite{oliveira01:codificacao}, sendo que esse último apresenta uma
-solução bastante elegante baseada em um módulo 96, sendo fácil de
-mapear para a representação de módulo 12. Nós acreditamos que a
-pesquisa em análise harmônica poderia ser grandemente simplificada
-pelo uso desses sistemas.
-
-O problema de não levar em consideração as diferenças enarmônicas é
-que acordes que possuem a mesma sonoridade mas tem função tonal
-diferente não serão detectados, como o acorde de sexta alemã. Em
-\cite{pardo02:algorithms}, por exemplo, um acorde de sexta alemã é
-erroneamente classificado como um acorde de sétima da dominante.  
-
-\section{segmentation}
+\section{Segmentation}
 % passos
 
 The segmentation problem, in \cite{prather96:harmonic}, is approached
@@ -250,25 +288,26 @@ more merges can be performed. \cite{pardo02:algorithms} and
 all possible (or likely, in another version of the algorithm)
 segmentations, choosing the ones that better match chord templates.
 
+%%kroger: completar
+Segmentation is also a problem in research dealing with audio formats.
+\cite{abdallah.noland.ea:theory} divides the segmentation by timber,
+harmony, and rhythm and pitch. ``they are not well adapted for use in
+structure analysis from audio'' \cite{maddage04:content} combines
+audio and symbolic representation for music structure analysis,
+including chord detection.
 
-\section{teoria dos conjuntos}
-% givaldo
+\cite{neve.orio:experiments}
 
-\section{teoria musical (contexto)}
-% givaldo
-
-\section{testes e comparação}
-% pedro
+seção 3.1 de \cite{byrd02:problems}
 
 \section{Harmonic Context}
 % marcos
 
 %% escrever: o que é contexto musical
 
-%% rever tradução para 'saída': output
 The recent research projects that develop algorithms for automated
 harmonic analysis doesn't make use of the harmonic context. However
-the problems in out are, in most of cases related to context.
+the problems in output are, in most of cases related to context.
 
 The set of algorithms for automated chordal analysis developed by
 \cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal
@@ -285,9 +324,132 @@ note is followed by a conjunct movement. The authors show problems
 related to ambiguities, non-regularity of harmonic rhythm,
 non-universality of harmonic rules.
 
+John Rothgeb foi um dos primeiros a lidar com o problema da
+harmonização automática \cite{rothgeb68:harmonizing}, nesse caso o
+problema do ``baixo não cifrado'' (i.e. uma técnica onde o
+intrumentista harmoniza um baixo dado mas sem as cifras do baixo
+cifrado). Ele implementou em computador regras de tratados do século
+XVIII e logo ficou claro que os tratados não forneciam detalhes
+completos o suficiente \cite{rothgeb79:simulating}.
+
+\section{Tests and benchmarks}
+
+%% TODO: citar
+Normaly work with an pre-maid answer key that sever as bechmarking.
+That's used in .... 
+%% TODO: onde, ter certeza
+Sometimes the authors disagree with the results in
+the answer key like in \cite{pardo02:algorithms}.
+
+Pardo afirma em \cite{pardo02:algorithms} que nenhum pesquisador
+publicou resultados estatísticos de performance em um sistema para a
+análise de musica tonal antes desse artigo. A falta dessas medidas na
+literatura faz com que seja difícil comparar diferentes sistemas. Ele
+implementou um sistema simples que permite ser duplicado e extendido
+por outros. O sistema é feito para explorar as propriedades
+computacionais básicas dos algoritmos e para prover uma base na qual
+outros sistemas podem ser mensurados. Dessa maneira as mudanças
+introduzidas por elementos como contexto tonal, regras de condução de
+vozes e informação métrica podem ser medidas
+\cite{pardo02:algorithms}. Ele usa 45 trechos musicais do Kostka e
+Payne \cite{kostka03:tonal} (compilados por Temperley). No apêndice
+ele lista quais são os trechos. Alguns desses materiais, assim como
+outros, estão disponíveis (em MIDI) em \cite{temperley01:materials}.
+\cite{pickens02:polyphonic} concorda que testes padrões em coleções de
+exemplos são importantes
+
+\cite{pardo00:automated} faz uma comparação da análise da Sonata op.
+13 de Beethoven, segundo movimento, compassos 1--8 com
+\cite{temperley99:modeling}; \cite{barthelemy01:figured} compara seu
+modelo com \cite{maxwell92:expert}, \cite{pardo99:automated} e
+\cite{temperley96:algorithm}. This is (probably) the most
+comprehensive comparision whe know of. O principal problema é que ele
+se basea nos \textit{artigos} esses autores, e não na implementação.
+Isso significa que somentes os exemplos analisados pelos autores podem
+ser comparados.
+
+Alguns sistemas tem o código-fonte disponível na internet como
+\cite{sleator03:melisma}, outros tem um algoritmo detalhado em código
+ou pseudo-código
+\cite{mouton95:numeric,oliveira01:codificacao,pardo02:algorithms} que
+permitem recontruir a pesquisa ao menos em parte. Finalmente alguns
+desenvolvem modelos matemáticos \cite{raphael03:harmonic}.
+
+\cite{pickens02:polyphonic} claims to be the first to retrieve data
+from polyphonic symbolic collections using polyphonic audio queries.
+It also uses a large corpus of music, 3150 pieces.
+\cite{pickens02:harmonic} also uses this large corpus
+
+\section{Conclusion and discussion}
+\label{sec:concl-disc}
+
+%%% metodos matematicos
+
+\cite{taneyev62:counterpoint}
+
+Ainda que existam modelos matemáticos para a análise harmônica, ainda
+não é claro na literatura (tanto musical quando de MIR) se uma
+abordagem utilizando a teoria dos conjuntos pode contribuir para a
+solução do problema. Até onde sabemos, não existem trabalhos
+significativos na literatura da análise harmônica automática em que a
+teoria dos conjuntos seja abordada de maneira aprofundada.
+\cite{pardo02:algorithms} usa tuplas com representação numérica das
+alturas, formando templates. Ao que parece ele define todas as
+transposições possíveis como templates, quando seria mais prático
+calcular através da forma prima. Ele relaciona os templates com a
+teoria dos conjuntos mas não a usa de forma explícita (i.e. forma
+prima, vetores de índice, etc).
+
+Uma abordagem de análise harmônica que utilize somente a teoria dos
+conjuntos será de pouca utilidade, dado ao caráter reducionista dessa
+teoria. Por exemplo, cada acorde na sequência Do menor, Sol maior, Do
+menor tem a mesma \textbf{forma prima}, (0,3,7) e, consequentemente, o
+mesmo \textbf{número de classificação de Allen Forte}, 3-11. Dessa
+maneira, uma redução analítica harmônica pela teoria dos conjuntos
+perderia informações importantes como a \emph{qualidade dos acordes}.
+Contudo procedimentos como o vetor intervalar e operações de extração
+de sub-conjuntos podem ajudar a identificar os elementos harmônicos
+dos não-harmônicos. O vetor intervalar lista todos os intervalos de um
+conjunto, fornecendo uma indicação confiável da sonoridade do
+conjunto.
+
+ver \cite{conklin02:representation}
+
 \bibliographystyle{plain}
-\bibliography{analise-harmonica,bib-geral,bib-outras}
+\bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
 %\nocite{*} 
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
+
+\section{Terminology}
+% todos
+
+% uma lista de possíveis termos a ser definidos, depois reduzir pra só
+% os relevantes e definí-los
+meter
+pitch
+segmentation
+tonality
+harmony
+hidden markov model
+melody
+neural network
+expert system
+pattern matching
+chord
+greedy algorithm
+island growing
+ornamental note
+music/harmonic context
+Forma prima.
+  Uma maneira de representar a classe de
+  conjunto de uma maneira compacta e não-ambígua.
+Vetor intervalar.
+Uma representação compactada contendo
+  todos os intervalos em um conjunto.
+Número de classificação de Allen Forte.
+Classificação
+  usando dois dígitos proposta por Allen Forte para todas as classes
+  de conjuntos. O primeiro dígito indica a quantidade de notas no
+  conjunto e o segundo sua posição na lista de classes de conjuntos.
