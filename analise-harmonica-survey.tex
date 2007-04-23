@@ -2,6 +2,7 @@
 \usepackage{icmc,amsmath}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
+\usepackage{url}
 
 \title{A Survey of Automated Harmony Recognition and Tonality
   Detection Techniques}
@@ -103,9 +104,9 @@ analysis by computer.
 
 %% TODO
 Alguns sistema geram acompanhamento on the fly
-\cite{cunha99:intelligent}, outros lidam com harmonização
-\cite{allan05:harmonizing}. o objetivo desse artigo e a análise de
-trechos musicais simbolicos.
+\cite{cunha99:intelligent,cunha99:intelligent}, outros lidam com
+harmonização \cite{allan05:harmonizing}. o objetivo desse artigo e a
+análise de trechos musicais simbolicos.
 
 % TODO
 \cite{barthelemy01:figured} is probably the most complet survey to
@@ -182,6 +183,21 @@ things like ``tonic of G'', ``substitute for x+2'', and so on.
 But no system seems to generate a functional analysis like ii$^6_6$,
 V7, and so on.
 
+\cite{harte.sandler.ea:symbolic} suggests a unambiguous notation for
+chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
+Since this notation is too verbose, the author himself proposes a
+shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
+proposed a notation for chords using a list in the format
+\texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
+could be notated as \texttt{(g major 7 1)}. This notation also admits
+a more verbose notation like 
+
+\begin{verbatim}
+(:fundamental g
+ :added-note 7
+ :inversion first
+ :type diminished)
+\end{verbatim}
 
 \section{Meter and Pitch Representations}
 % pedro, passos
@@ -247,8 +263,12 @@ including chord detection.
 
 \cite{neve.orio:experiments}
 
+seção 3.1 de \cite{byrd02:problems}
+
 \section{teoria dos conjuntos}
 % givaldo
+
+ver \cite{conklin02:representation}
 
 \section{teoria musical (contexto)}
 % givaldo
@@ -263,6 +283,52 @@ completos o suficiente \cite{rothgeb79:simulating}.
 
 \section{testes e comparação}
 % pedro
+
+%% TODO: citar
+Normaly work with an pre-maid answer key that sever as bechmarking.
+That's used in .... 
+%% TODO: onde, ter certeza
+Sometimes the authors disagree with the results in
+the answer key like in \cite{pardo02:algorithms}.
+
+Pardo afirma em \cite{pardo02:algorithms} que nenhum pesquisador
+publicou resultados estatísticos de performance em um sistema para a
+análise de musica tonal antes desse artigo. A falta dessas medidas na
+literatura faz com que seja difícil comparar diferentes sistemas. Ele
+implementou um sistema simples que permite ser duplicado e extendido
+por outros. O sistema é feito para explorar as propriedades
+computacionais básicas dos algoritmos e para prover uma base na qual
+outros sistemas podem ser mensurados. Dessa maneira as mudanças
+introduzidas por elementos como contexto tonal, regras de condução de
+vozes e informação métrica podem ser medidas
+\cite{pardo02:algorithms}. Ele usa 45 trechos musicais do Kostka e
+Payne \cite{kostka03:tonal} (compilados por Temperley). No apêndice
+ele lista quais são os trechos. Alguns desses materiais, assim como
+outros, estão disponíveis (em MIDI) em \cite{temperley01:materials}.
+\cite{pickens02:polyphonic} concorda que testes padrões em coleções de
+exemplos são importantes
+
+\cite{pardo00:automated} faz uma comparação da análise da Sonata op.
+13 de Beethoven, segundo movimento, compassos 1--8 com
+\cite{temperley99:modeling}; \cite{barthelemy01:figured} compara seu
+modelo com \cite{maxwell92:expert}, \cite{pardo99:automated} e
+\cite{temperley96:algorithm}. This is (probably) the most
+comprehensive comparision whe know of. O principal problema é que ele
+se basea nos \textit{artigos} esses autores, e não na implementação.
+Isso significa que somentes os exemplos analisados pelos autores podem
+ser comparados.
+
+Alguns sistemas tem o código-fonte disponível na internet como
+\cite{sleator03:melisma}, outros tem um algoritmo detalhado em código
+ou pseudo-código
+\cite{mouton95:numeric,oliveira01:codificacao,pardo02:algorithms} que
+permitem recontruir a pesquisa ao menos em parte. Finalmente alguns
+desenvolvem modelos matemáticos \cite{raphael03:harmonic}.
+
+\cite{pickens02:polyphonic} claims to be the first to retrieve data
+from polyphonic symbolic collections using polyphonic audio queries.
+It also uses a large corpus of music, 3150 pieces.
+\cite{pickens02:harmonic} also uses this large corpus
 
 \section{Harmonic Context}
 % marcos
