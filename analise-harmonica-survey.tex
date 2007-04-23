@@ -101,15 +101,15 @@ the tonal function. In this paper the terms ``analysis'' and
 ``harmonic analysis'' will be loosely used to mean automated harmonic
 analysis by computer.
 
-\section{The problem}
-\label{sec:problem}
-%% pedro: dividir
+%% TODO
+Alguns sistema geram acompanhamento on the fly
+\cite{cunha99:intelligent}, outros lidam com harmonização
+\cite{allan05:harmonizing}. o objetivo desse artigo e a análise de
+trechos musicais simbolicos.
 
-A análise automática é uma tarefa complexa por diversas razões; o
-material musical é composto de uma grande variadade de informações
-(timbre, notas, ritmo, dinâmica, harmonia) e pelo fato de música ser
-um processo temporal, diferentemente de imagem, por exemplo
-\cite{mouton95:numeric}. 
+% TODO
+\cite{barthelemy01:figured} is probably the most complet survey to
+this date.
 
 \section{Terminology}
 % todos
@@ -161,6 +161,27 @@ model for key recognition.
 
 \section{Tipos de resultado}
 % pedro
+
+Probably the most basic kind of output is the key of a musical
+passage. Most recent research on estimation of musical keys is
+concerned with the analysis of audio signal
+\cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
+analysis focus on translating the analysis result to another medium.
+For instance, \cite{wang97:generating} generates a 6-line guitar score
+(tablature) (with the chords names on top of it) from the analysis of
+a MIDI input. The system described in \cite{pachet00:computer} outputs
+not only the chords names (e.g. Db7) but some functions used in jazz
+harmony like ``modal borrowing'' and ``tritone substitution''. The
+analysis results from \cite{barthelemy01:figured} is in the form of
+figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and $^6_5$. Most systems
+uses the chords names like A$\flat$7, D$\flat$min, and so on
+\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}.
+\cite{Ulrich77IJ} performs a functional analysis of chords, indicating
+things like ``tonic of G'', ``substitute for x+2'', and so on. 
+%% precisa checar
+But no system seems to generate a functional analysis like ii$^6_6$,
+V7, and so on.
+
 
 \section{Meter and Pitch Representations}
 % pedro, passos
@@ -216,12 +237,29 @@ more merges can be performed. \cite{pardo02:algorithms} and
 all possible (or likely, in another version of the algorithm)
 segmentations, choosing the ones that better match chord templates.
 
+%%kroger: completar
+Segmentation is also a problem in research dealing with audio formats.
+\cite{abdallah.noland.ea:theory} divides the segmentation by timber,
+harmony, and rhythm and pitch. ``they are not well adapted for use in
+structure analysis from audio'' \cite{maddage04:content} combines
+audio and symbolic representation for music structure analysis,
+including chord detection.
+
+\cite{neve.orio:experiments}
 
 \section{teoria dos conjuntos}
 % givaldo
 
 \section{teoria musical (contexto)}
 % givaldo
+
+John Rothgeb foi um dos primeiros a lidar com o problema da
+harmonização automática \cite{rothgeb68:harmonizing}, nesse caso o
+problema do ``baixo não cifrado'' (i.e. uma técnica onde o
+intrumentista harmoniza um baixo dado mas sem as cifras do baixo
+cifrado). Ele implementou em computador regras de tratados do século
+XVIII e logo ficou claro que os tratados não forneciam detalhes
+completos o suficiente \cite{rothgeb79:simulating}.
 
 \section{testes e comparação}
 % pedro
@@ -251,7 +289,7 @@ related to ambiguities, non-regularity of harmonic rhythm,
 non-universality of harmonic rules.
 
 \bibliographystyle{plain}
-\bibliography{analise-harmonica,bib-geral,bib-outras}
+\bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
 %\nocite{*} 
 \end{document}
  
