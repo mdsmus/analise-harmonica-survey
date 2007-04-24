@@ -113,6 +113,10 @@ this date.
 \subsection{Historic context}
 \label{sec:historic-context}
 
+Automatically analysing music scores with a computer was first
+proposed by Winograd, in 1968, using a formal-language-based approach,
+with generative grammars for tonal music.
+
 
 \subsection{The harmonic context}
 \label{sec:harmonic-context}
@@ -120,33 +124,36 @@ this date.
 \subsection{Harmonic segmentation}
 \label{sec:harm-segm}
 
+Another crucial, though underrepresented in literature, problem in the
+area of automated harmonic analysis is the division of a given
+piece in harmonic significant segments before associating these
+segments with chords and tonal functions. This problem is non-trivial,
+since the number of possible partition points in a given piece is
+proportional to the number of notes - usually divided by a constant
+representing the number of voices and likelihood of chords and
+double-steps - and, so, the number of possible segmentations is
+approximately two to the power of the number of notes in a score.
+
+Also, the segmentation problem isn't clearly formalized in musical
+theory texts, making, thus, effective algorithms for solving it
+non-trivial. We believe that a more systematic approach to music
+segmentation might wield considerably better results.
 
 \section{Representation}
 
-Probably the most basic harmonic output is the key of a musical
-passage. Most recent research on estimation of musical keys is
-concerned with the analysis of audio signals
-\cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
-research, also, focuses on translating the results to another medium.
-For instance, \cite{wang97:generating} generates a 6-line guitar
-score, a tablature marked with the chords for a given passage, from
-the analysis of a MIDI input. The system described in
-\cite{pachet00:computer} outputs not only the chord names (e.g. Db7)
-but some functions used in jazz harmony like ``modal borrowing'' and
-``tritone substitution''. Results from \cite{barthelemy01:figured} are
-in the form of figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and
-$^6_5$. Most systems, as those from
-\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
-chord notation like A$\flat$7, D$\flat$min, for A flat with minor
-seventh and D flat minor, respectively.
-
-\cite{Ulrich77IJ} performs a functional analysis of chords, indicating
-information such as ``tonic of G'', ``substitute for x+2''.
-%% precisa checar
-But no system seems to generate a functional analysis like ii$^6_6$,
-V7, and so on.
-%% duvidoso. Alguns sistemas fazem isso, se não me engano.
-
+Before any attempt is made to extract information from a given musical
+piece, it must be codified in a form amenable to automated
+analysis. Representing musical information on a computer is not a
+solved problem, there being a multitude of possible codifications,
+from more sound-oriented ones - such as MIDI and piano roll notation -
+to notations, such as \cite{kroger06:processo}, specifically made to
+better transmit harmonic information. Interestingly, the choice of a
+proper codification influences the results obtainable from the later
+analysis. For example, a representation which fails to distinguish
+enharmonic pitches might make harder to recognize a neapolitan sixth
+from an augmented seventh. Thus, it is crucial that a good input
+format be chosen so as to minimize errors and necessary human input in
+the analysis.
 
 \cite{harte.sandler.ea:symbolic} suggests an unambiguous notation for
 chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
@@ -184,6 +191,33 @@ basis for sutdy of better
 algorithms. \cite{tsui02:_harmon_analy_using_neural_networ} and other
 systems differentiate in importance notes having different meter
 strength.
+
+
+Probably the most basic harmonic output is the key of a musical
+passage. Most recent research on estimation of musical keys is
+concerned with the analysis of audio signals
+\cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
+research, also, focuses on translating the results to another medium.
+For instance, \cite{wang97:generating} generates a 6-line guitar
+score, a tablature marked with the chords for a given passage, from
+the analysis of a MIDI input. The system described in
+\cite{pachet00:computer} outputs not only the chord names (e.g. Db7)
+but some functions used in jazz harmony like ``modal borrowing'' and
+``tritone substitution''. Results from \cite{barthelemy01:figured} are
+in the form of figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and
+$^6_5$. Most systems, as those from
+\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
+chord notation like A$\flat$7, D$\flat$min, for A flat with minor
+seventh and D flat minor, respectively.
+
+\cite{Ulrich77IJ} performs a functional analysis of chords, indicating
+information such as ``tonic of G'', ``substitute for x+2''.
+%% precisa checar
+But no system seems to generate a functional analysis like ii$^6_6$,
+V7, and so on.
+%% duvidoso. Alguns sistemas fazem isso, se não me engano.
+
+
 
 alguns sistemas numéricos foram elaborados para manter as
 características da música tonal como \cite{hewlett92:base40} e
