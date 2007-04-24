@@ -111,9 +111,6 @@ analysis by computer.
 
 
 
-\section{Tipos de resultado}
-% pedro
-=======
 %% TODO
 %% o problema geral
 
@@ -139,27 +136,32 @@ this date.
 
 \section{Representation}
 
-Probably the most basic kind of output is the key of a musical
+Probably the most basic harmonic output is the key of a musical
 passage. Most recent research on estimation of musical keys is
-concerned with the analysis of audio signal
+concerned with the analysis of audio signals
 \cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
-analysis focus on translating the analysis result to another medium.
-For instance, \cite{wang97:generating} generates a 6-line guitar score
-(tablature) (with the chords names on top of it) from the analysis of
-a MIDI input. The system described in \cite{pachet00:computer} outputs
-not only the chords names (e.g. Db7) but some functions used in jazz
-harmony like ``modal borrowing'' and ``tritone substitution''. The
-analysis results from \cite{barthelemy01:figured} is in the form of
-figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and $^6_5$. Most systems
-uses the chords names like A$\flat$7, D$\flat$min, and so on
-\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}.
+research, also, focuses on translating the results to another medium.
+For instance, \cite{wang97:generating} generates a 6-line guitar
+score, a tablature marked with the chords for a given passage, from
+the analysis of a MIDI input. The system described in
+\cite{pachet00:computer} outputs not only the chord names (e.g. Db7)
+but some functions used in jazz harmony like ``modal borrowing'' and
+``tritone substitution''. Results from \cite{barthelemy01:figured} are
+in the form of figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and
+$^6_5$. Most systems, as those from
+\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
+chord notation like A$\flat$7, D$\flat$min, for A flat with minor
+seventh and D flat minor, respectively.
+
 \cite{Ulrich77IJ} performs a functional analysis of chords, indicating
-things like ``tonic of G'', ``substitute for x+2'', and so on. 
+information such as ``tonic of G'', ``substitute for x+2''.
 %% precisa checar
 But no system seems to generate a functional analysis like ii$^6_6$,
 V7, and so on.
+%% duvidoso. Alguns sistemas fazem isso, se não me engano.
 
-\cite{harte.sandler.ea:symbolic} suggests a unambiguous notation for
+
+\cite{harte.sandler.ea:symbolic} suggests an unambiguous notation for
 chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
 Since this notation is too verbose, the author himself proposes a
 shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
@@ -210,7 +212,9 @@ diferente não serão detectados, como o acorde de sexta alemã. Em
 \cite{pardo02:algorithms}, por exemplo, um acorde de sexta alemã é
 erroneamente classificado como um acorde de sétima da dominante.  
 
-\section{Algoritmos}
+\section{Algorithms}
+
+
 Many approaches related to the fields of artificial intelligence,
 machine learning and pattern recognition have been applied to the
 field of automated harmonic analysis. Roughly speaking, they may be
@@ -266,21 +270,35 @@ states represent possible keys and the inputs are the chord
 changes. \cite{temperley04:bayesian} uses a bayesian model for key
 recognition.
 
+Probabilistic models, while not specifically addressing this problem,
+differ from more deterministic ones in not specifically ignoring
+harmonical context information, thus handling some cases slightly
+better. On the other hand, due to their obliviousness to musical
+theory, they are very sensitive on the training data, tending to
+misbehave on slightly different scores.
 
 
 \section{Segmentation}
 % passos
 
-The segmentation problem, in \cite{prather96:harmonic}, is approached
-in a simplified fashion, with chords being assumed to change only in
-the beats of a given measure, and tonal information spread between two 
-measures being ignored. \cite{bod01:memory} proposes a memory-based
-model, contrasting it with rule-based ones, with good results,
-although his approach to segmentation in unrelated to harmonic
-analysis, and thus not very relevant. \cite{barthelemy01:figured} uses
-melodic and harmonic information to construct the segmentation
-bottom-up, ie merging two adjacent segments if and only every sound of
-the first belongs in the second or if the union (with or without
+The segmentation problem for harmonic analysis of tonal music is
+largely unsolved. Due to its high computational complexity - the
+number of possible partitions of a given piece being roughly
+proportional to two to the power of the notes used - and its strict
+dependance on context, efficient and comprehensive solutions for it
+are hard to find. Still, it is of fundamental importance, for the rest
+of the analysis is constrained by the existing segmentation.
+
+\cite{prather96:harmonic} approaches the problem in a simplified
+fashion, with chords being assumed to change only in the beats of a
+given measure, and tonal information spread between two measures being
+ignored. \cite{bod01:memory} proposes a memory-based model,
+contrasting it with rule-based ones, with good results, although his
+approach to segmentation in unrelated to harmonic analysis, and thus
+not very relevant. \cite{barthelemy01:figured} uses melodic and
+harmonic information to construct the segmentation bottom-up, i.e.
+merging two adjacent segments if and only every sound of the first
+belongs in the second and vice versa or if the union (with or without
 ornamental notes) of both segments can be exactly mapped onto a
 chord. The process starts with minimal segments and ends only when no
 more merges can be performed. \cite{pardo02:algorithms} and
