@@ -366,38 +366,44 @@ seção 3.1 de \cite{byrd02:problems}
 
 %% escrever: o que é contexto musical
 
+The harmonic context is important in a automated harmonic analysis
+system because some chords and notes (non-chord notes) can be
+understood only if this context is considered. The harmonic context
+helps to solve problems as ambiguities in chord analysis and
+identification of non-chord notes and suspension and ritardo
+resolutions.
+
 The recent research projects that develop algorithms for automated
 harmonic analysis doesn't make use of the harmonic context. However
-the problems in output are, in most of cases related to context.
+the answer errors are, in most of cases related to context.
 
-The set of algorithms for automated chordal analysis developed by
-\cite{pardo02:algorithms} and \cite{pardo99:automated} make minimal
-use of harmonic context. The errors frequencies are classified and
-most of them is related to harmonic context, specifically non-chord
-notes and cadence recognition.  The authors agree that a deeper
-understanding about voice leading and the knowledge about neighbor
-chords would help to adjust chord-label weights.
-
-The automated harmonic analysis method developed by
-\cite{barthelemy01:figured} has a simple algorithm to process
+Some of these research projects consider harmonic context, as the NUSO
+system \cite{mouton95:numeric}, that uses harmonic context to define
+tonality through rules that consider non-chord notes in accompanied
+melody, Alberti bass and baroque style; the MusES system that uses
+relations between adjacent chords to define the best possible tonality
+for a chord; and the automated harmonic analysis method developed by
+\cite{barthelemy01:figured} that has a simple algorithm to process
 non-chord notes that produces errors. It consider that every non-chord
 note is followed by a conjunct movement. The authors show problems
 related to ambiguities, non-regularity of harmonic rhythm,
 non-universality of harmonic rules.
 
-%% devo incluir isso?
-According to \cite{mouton95:numeric}, some works consider the harmonic
-context in automated harmonic analysis (c.f. ).
-
-The NUSO system \cite{mouton95:numeric} uses harmonic context to
-define tonality through rules that consider non-chord notes in
-accompanied melody, Alberti bass and baroque style. The MusES system
-uses relation between adjacent chords to define the best possible
-tonality for a chord.
-
-\cite{harte.sandler.ea:symbolic} says that in classical harmony
+Other projects don't consider harmonic context, as
+\cite{harte.sandler.ea:symbolic}, that says that in classical harmony
 analysis the ``chords are notated in the context of a given key'', but
-in their model for chord labels, the key context is not considered.
+in their model for chord labels, the key context is not considered;
+and \cite{pardo99:automated} and \cite{pardo02:algorithms}, that
+developed a set of algorithms for automated chordal analysis that make
+minimal use of harmonic context. The errors frequencies are classified
+and most of them is related to harmonic context, specifically
+non-chord notes and cadence recognition. The authors agree that a
+deeper understanding about voice leading and the knowledge about
+neighbor chords would help to adjust chord-label weights.
+
+%% devo incluir isso?
+% According to \cite{mouton95:numeric}, some works consider the harmonic
+% context in automated harmonic analysis (c.f. ).
 
 John Rothgeb foi um dos primeiros a lidar com o problema da
 harmonização automática \cite{rothgeb68:harmonizing}, nesse caso o
