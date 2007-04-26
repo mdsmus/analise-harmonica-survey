@@ -20,11 +20,16 @@
 %% artigo deve ter 4 ou 8 paginas
 
 \begin{abstract}
-The abstract should be placed at the top left column and should contain
-about 150-200 words.
+Since Winograd in 1968, the problem of using a computer to do
+automated harmonic analysis has been approached, from several different
+directions, most with reasonable success. On the other hand, little
+has been done towards stabilishing standard benchmarks, and
+identifying and solving the remaining issues of harmonic-significant
+segmentation of musical pieces and properly using contextual
+information.
 
-The problems of automated harmony recognition and tonality detection
-have 
+Here we present a comprehensive survey of the existing literature on
+the subject, as a means to enable more focused research on the area.
 \end{abstract}
 
 \section{Introduction}
@@ -96,17 +101,23 @@ analysis by computer.
 \subsection{The problem}
 \label{sec:problem}
 
+The problem of automated harmonic analysis might be understood by
+dividing it into three non-disjoint subproblems. First, it is
+necessary to have the musical piece in a form suitable for analysis,
+such as MIDI, textual scores, or any other similar format. Thus,
+performinc harmonic analysis of a given pieve is done by determining
+the harmonic-significant segments of it, and then assigning a chord
+name and a tonal function for each of those. A few sub problems might
+arise, such as determining meter, or a correct pitch spelling,
+depending on the suitability of the input format.
 
+Some systems might use this information for automatically improvising
+over a tune (possibly on the fly, as it is performed, which puts hard
+constraints on the efficiency of the algorithms used), or harmonizing
+a single melody by generating consonant voices. In this article we
+focus mostly on systems that analyse simbolic data with the intention
+of properly identifying each segment's harmonic function and/or
 
-%% TODO
-%% o problema geral
-
-Alguns sistema geram acompanhamento on the fly
-\cite{cunha99:intelligent,cunha99:intelligent}, outros lidam com
-harmonização \cite{allan05:harmonizing}. o objetivo desse artigo e a
-análise de trechos musicais simbolicos.
-
-% TODO
 \cite{barthelemy01:figured} is probably the most complet survey to
 this date.
 
@@ -115,17 +126,28 @@ this date.
 
 Automatically analysing music scores with a computer was first
 proposed by Winograd, in 1968, using a formal-language-based approach,
-with generative grammars for tonal music.
+with generative grammars for tonal music. This model, while
+interesting for its groundbreaking consequences, was of little
+practical use, generating a proper grammar for tonal music being a
+non-trivial task, and parsing music with it even more so (as the
+grammars produced tended to be either context-sensitive of
+ambiguous). Thus, several other approaches have been tried, such as
+pattern-matching over chord templates in
+\cite{pardo02:algorithms,barthelemy01:figured} and neural networks, as
+in \cite{tsui02:_harmon_analy_using_neural_networ}, with varying
+degrees of success. No method, however, reliably detects the proper
+harmonic segmentation of a given piece, nor cosiders fully musical
+context, making these solutions partial by essence.
 
 
-\subsection{The harmonic context}
+\subsection{Harmonic context}
 \label{sec:harmonic-context}
 
 \subsection{Harmonic segmentation}
 \label{sec:harm-segm}
 
-Another crucial, though underrepresented in literature, problem in the
-area of automated harmonic analysis is the division of a given
+The other crucial, though underrepresented in literature, problem in
+the area of automated harmonic analysis is the division of a given
 piece in harmonic significant segments before associating these
 segments with chords and tonal functions. This problem is non-trivial,
 since the number of possible partition points in a given piece is
@@ -161,7 +183,7 @@ Since this notation is too verbose, the author himself proposes a
 shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
 proposed a notation for chords using a list in the format
 \texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
-could be notated as \texttt{(g major 7 1)}. This notation also admits
+could be notated as \texttt{(g major 7 1)}. This rationale also enables
 a more verbose notation like 
 
 \begin{verbatim}
@@ -193,7 +215,7 @@ systems differentiate in importance notes having different meter
 strength.
 
 
-Probably the most basic harmonic output is the key of a musical
+Probably the simplest harmonic output is the key of a musical
 passage. Most recent research on estimation of musical keys is
 concerned with the analysis of audio signals
 \cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
