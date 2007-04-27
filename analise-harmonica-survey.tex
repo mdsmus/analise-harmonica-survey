@@ -3,8 +3,13 @@
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage{url}
+\usepackage{pifont}
 
-\newcommand{\nota}[1]{\textbf{nota:} \textit{#1}}
+\newcommand{\nota}[1]{
+  \vspace{.5cm}
+  \framebox{\ding{112} \textbf{nota:} \textit{#1}}
+  \vspace{.5cm}
+}
 
 \hyphenation{nea-po-li-tan}
 
@@ -396,75 +401,51 @@ completos o suficiente \cite{rothgeb79:simulating}.
 
 Pardo states that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
-\cite{pardo02:algorithms} before his paper. And not many have
-published this sort of data after him. The lack of this data in the
-literature makes dificult to compare different systems.
+\cite{pardo02:algorithms} before his paper. The lack of this sort of
+data in the literature makes dificult to compare different systems.
 
-There is not a specific framework for comparison among different
+Also, there is not a specific framework for comparison among different
 algorithms and results. In fact, only Pardo \cite{pardo00:automated}
 and Barthelemy \cite{barthelemy01:figured} published specific
 comparisons between the result of theirs programs and the result of
-other authors. Pardo compares his results with
+the programs of other authors. Pardo compares his results with
 \cite{temperley99:modeling} while Barthelemy compares his model
 against \cite{maxwell92:expert}, \cite{pardo99:automated} and
 \cite{temperley96:algorithm}. This is the most comprehensive
-comparision whe know of. However, these comparisons were based on the
-results published in papres and not in a direct implementation. This
-means that only the examples analysed by the authors can be compared.
+comparision we know of. However, they are based on the results
+published in papers and not as a result of a direct implementation.
+This means that only the examples published by the authors can be
+compared.
 
-We believe that it is important to have standard tests in colections
-of examples. As stated in the section \ref{sec:introduction} of this
-paper, we believe that having a large corpus of music is necessary to
-the success of testing a specific algorithm. Pickens
-\cite{pickens02:polyphonic} not only agrees that is necessary to have
-standard tests as he uses a large corpus of music in his research.
-
-Ele usa 45 trechos musicais do Kostka e Payne \cite{kostka03:tonal}
-(compilados por Temperley). Alguns desses materiais, assim como
-outros, estão disponíveis (em MIDI) em \cite{temperley01:materials}.
-
-%% TODO: citar
-Normaly work with an pre-maid answer key that sever as bechmarking.
-That's used in .... 
-%% TODO: onde, ter certeza
-Sometimes the authors disagree with the results in
-the answer key like in \cite{pardo02:algorithms}.
-
+We believe that it is important to have standard tests to be performed
+in a large corpus of music. Pickens \cite{pickens02:polyphonic} not
+only agrees with that, but he uses a large corpus of music consisting
+of 3150 pieces in his own research.
 
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
 
-%%% metodos matematicos
+Although many aspects of music can be understood using mathematical
+models such as the set theory (of post-tonal theory), it is not clear
+in the literature if a mathematical approach could help in the problem
+of harmonic analysis. Taneyev \cite{taneyev62:counterpoint} has used
+mathematics extensively in his counterpoint treatise with a good
+degree of success. As far as we know, there are not meaningful works
+in the literature of automatic harmonic analysis where a mathematical
+model such as the set theory is used extensively.
 
-\cite{taneyev62:counterpoint}
+\nota{checar para ver se é 100\% verdade}
 
-Ainda que existam modelos matemáticos para a análise harmônica, ainda
-não é claro na literatura (tanto musical quando de MIR) se uma
-abordagem utilizando a teoria dos conjuntos pode contribuir para a
-solução do problema. Até onde sabemos, não existem trabalhos
-significativos na literatura da análise harmônica automática em que a
-teoria dos conjuntos seja abordada de maneira aprofundada.
-\cite{pardo02:algorithms} usa tuplas com representação numérica das
-alturas, formando templates. Ao que parece ele define todas as
-transposições possíveis como templates, quando seria mais prático
-calcular através da forma prima. Ele relaciona os templates com a
-teoria dos conjuntos mas não a usa de forma explícita (i.e. forma
-prima, vetores de índice, etc).
+\cite{pardo02:algorithms} uses tuples as templates, with a numerical
+representation of notes. All posible transpositions are defined as
+templates, when could be much easier to calculate if two pitch class
+sets are the same using the prime form. Maybe things like normal and
+prime form, interval vector, index vector, and operations with super
+and sub-sets can help identifying harmonic elements from the non-harmonic.
 
-Uma abordagem de análise harmônica que utilize somente a teoria dos
-conjuntos será de pouca utilidade, dado ao caráter reducionista dessa
-teoria. Por exemplo, cada acorde na sequência Do menor, Sol maior, Do
-menor tem a mesma \textbf{forma prima}, (0,3,7) e, consequentemente, o
-mesmo \textbf{número de classificação de Allen Forte}, 3-11. Dessa
-maneira, uma redução analítica harmônica pela teoria dos conjuntos
-perderia informações importantes como a \emph{qualidade dos acordes}.
-Contudo procedimentos como o vetor intervalar e operações de extração
-de sub-conjuntos podem ajudar a identificar os elementos harmônicos
-dos não-harmônicos. O vetor intervalar lista todos os intervalos de um
-conjunto, fornecendo uma indicação confiável da sonoridade do
-conjunto.
+\nota{ver \cite{conklin95:multiple} em detalhe}
 
-ver \cite{conklin02:representation}
+\nota{ver se cita \cite{conklin02:representation}}
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
