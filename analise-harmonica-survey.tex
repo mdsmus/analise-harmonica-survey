@@ -92,7 +92,9 @@ automatic musical analysis.
 
 \nota{falar como serão feitas as coisas nesse artigo}
 
-This paper will begin with....
+This paper will begin by pointing out the main problems and existent
+solutions in the field, and then proceed in discussing their
+effectiveness.
 
 \section{The problem of automated harmonic analysis}
 \label{sec:problem}
@@ -119,7 +121,7 @@ or harmonizing \cite{allan05:harmonizing}. In this article we focus
 mostly on systems that analyse simbolic data with the intention of
 properly identifying each segment's harmonic function and/or
 
-Automatically analysing music scores with a computer was first
+Automatically analyzing music scores with a computer was first
 proposed by Winograd, in 1968, using a formal-language-based approach,
 with generative grammars for tonal music. This model, while
 interesting for its groundbreaking consequences, was of little
@@ -351,36 +353,36 @@ seção 3.1 de \cite{byrd02:problems}
 
 %% escrever: o que é contexto musical
 
-The harmonic context is important in a automated harmonic analysis
-system because some chords and notes (non-chord notes) only can be
-correctly understood if this context is considered. The use of
-harmonic context helps to solve problems as ambiguities in chord
-analysis, identification of non-chord notes and of suspension and
-ritardo resolutions.
+The harmonic context is important in an automated harmonic analysis
+system because some chords and notes (such as non-chord notes) only
+can be correctly understood when it is considered. Proper use of
+harmonic context helps solving problems such as ambiguities in chord
+analysis, identification of non-chord notes and suspension and
+ritardo of resolutions.
 
 Some automated harmonic analysis systems consider harmonic context, as
 the NUSO system \cite{mouton95:numeric}, that uses harmonic context to
-define tonality through rules that consider non-chord notes in
-accompanied melody, Alberti bass and baroque style; the MusES system
-that uses relations between adjacent chords to define the best
-possible tonality for a chord; and the automated harmonic analysis
-method developed by \cite{barthelemy01:figured} that has a simple
-algorithm to process non-chord notes that produces errors. It consider
-that every non-chord note is followed by a conjunct movement.  The
-authors show problems related to ambiguities, non-regularity of
-harmonic rhythm, non-universality of harmonic rules.
+define tonality through rules considering non-chord notes in
+accompanied melody, Alberti bass and baroque style; the MusES system,
+using relations between adjacent chords to define the best possible
+tonality for a chord; and the automated harmonic analysis method
+developed by \cite{barthelemy01:figured} that has a simple algorithm
+to process non-chord notes, often producing errors. It considers that
+every non-chord note is followed by a conjunct movement.  The authors
+show problems related to ambiguities, non-regularity of harmonic
+rhythm, non-universality of harmonic rules.
 
 Other projects don't consider harmonic context, as
-\cite{harte.sandler.ea:symbolic}, that says that in classical harmony
+\cite{harte.sandler.ea:symbolic}, who says that in classical harmony
 analysis the ``chords are notated in the context of a given key'', but
-in their model for chord labels, the key context is not considered;
-and \cite{pardo99:automated} and \cite{pardo02:algorithms}, that
-developed a set of algorithms for automated chordal analysis that make
-minimal use of harmonic context. The errors frequencies are classified
-and most of them is related to harmonic context, specifically
+ignores key context in their model for chord labels; and
+\cite{pardo99:automated} and \cite{pardo02:algorithms}, that developed
+a set of algorithms for automated chordal analysis purposefully making
+minimal use of harmonic context. The error frequencies are classified
+and most of them are related to harmonic context, specifically
 non-chord notes and cadence recognition. The authors agree that a
-deeper understanding about voice leading and the knowledge about
-neighbor chords would help to adjust chord-label weights.
+deeper understanding of voice leading and knowledge about neighbour
+chords would help adjusting chord-label weights.
 
 %% devo incluir isso?
 % According to \cite{mouton95:numeric}, some works consider the harmonic
@@ -400,26 +402,25 @@ completos o suficiente \cite{rothgeb79:simulating}.
 
 Pardo states that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
-\cite{pardo02:algorithms} before his paper. The lack of this sort of
-data in the literature makes dificult to compare different systems.
+\cite{pardo02:algorithms} before his paper. This defficiency in the
+literature makescomparing different systems difficult.
 
-Also, there is not a specific framework for comparison among different
+Also, there is not a specific framework for comparison of different
 algorithms and results. In fact, only Pardo \cite{pardo00:automated}
 and Barthelemy \cite{barthelemy01:figured} published specific
-comparisons between the result of theirs programs and the result of
-the programs of other authors. Pardo compares his results with
-\cite{temperley99:modeling} while Barthelemy compares his model
+comparisons between their results other authors'. Pardo compares his
+with \cite{temperley99:modeling} while Barthelemy measures his model
 against \cite{maxwell92:expert}, \cite{pardo99:automated} and
 \cite{temperley96:algorithm}. This is the most comprehensive
 comparision we know of. However, they are based on the results
-published in papers and not as a result of a direct implementation.
-This means that only the examples published by the authors can be
+published in papers and not on results from direct implementations,
+which means that only the examples published by the authors can be
 compared.
 
-We believe that it is important to have standard tests to be performed
+We believe in the importance of having standard tests to be performed
 in a large corpus of music. Pickens \cite{pickens02:polyphonic} not
-only agrees with that, but he uses a large corpus of music consisting
-of 3150 pieces in his own research.
+only agrees with that but uses a large corpus of music, consisting of
+3150 pieces, in his own research.
 
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
