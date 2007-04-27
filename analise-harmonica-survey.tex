@@ -48,9 +48,9 @@ recently. Some research focus on music retrieval by query-by-humming
 \cite{hu02comparison,pickens02:polyphonic}, development of tools for
 digital libraries
 \cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, detection of
-musical patters
+musical patterns
 \cite{lartillot-nakamura03:discovering,dannenberg02:pattern,lartillot02:integrating}
-that may help, among other things, to help identifying musical styles
+that may help, among other things, in identifying musical styles
 \cite{dixon03:classification,pampalk03:exploring,rauber02:using}, and
 in problems related to musical representation
 \cite{lee02:representing,good00:representing,rol00:xml4mir}.
@@ -59,36 +59,35 @@ While the main goal in music information retrieval `` is not an
 understanding of music. It is not to develop a better theory of music,
 or even to analyze music. The goal is retrieval''
 \cite{pickens01:survey}, other researchers seek a better understanding
-of elements and musical processes trough the automatic analysis by a
+of elements and musical processes through automatic analysis by
 computer. We agree with Mouton that ``only automatic analysis of a
 large corpus of tonal music may eventually provide us (the human) with
 insights on the very nature of tonal music'' \cite{mouton95:numeric}.
 Computer-based musical analysis is important because it can bring new
-insights in this area, in the same way the use of the computer in
-vision and problem solving brought new insights these areas
+insights in musical theory, in the same way as use of computer in vision
+and problem solving has brought new insights in these areas
 \cite{temperley99:modeling}.
 
-There are many practical aplications for automatic music analysis,
-among then are automated arranging, detection of posible logical
-mistakes in scores, database search, automatic accompaniment
-generation, and statitical analysis of musical styles for automated
-composition \cite{pardo02:algorithms,temperley99:modeling}. 
+There are many practical applications for automatic music analysis,
+among them arranging, detection of possible logical mistakes in scores,
+database search, automatic accompaniment generation, and statistical
+analysis of musical styles for automated composition
+\cite{pardo02:algorithms,temperley99:modeling}.
 
-A specific kind of musical analysis is what is known as functional
-harmonic analysis, where a musical passage is represented by a
-sequence of chords. By definition, automated harmony analysis must be
-done completely by computer programs without human intervention.
-Typically the system accepts musical data as input in some format
-(such as MIDI, scores in symbolic or numeric format, and so on) and
-returns as result information such as chords roots, chords types, or
-symbols in roman numerals indicating the tonal function.
+Functional harmonic analysis is a specific kind of musical analysis,
+in which a musical passage is represented as a sequence of chords. By
+definition, automated harmony analysis must be done completely by
+computer programs without human intervention. Typically the system
+accepts musical data in a format such as MIDI or scores in symbolic or
+numeric format, and returns information such as chord roots, chord
+types, or symbols in roman numerals indicating tonal function.
 
 This paper gives an overview of the current status of automated
-harmonic analysis. To our knowledge there is no comprehensive survey
+harmonic analysis. To our knowledge, there is no comprehensive survey
 on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
-of the state of the art until 2001 and \cite{mouton95:numeric} and
-\cite{barthelemy01:figured} have a general but informative survey on
-automatic musical analysis.
+of the state of the art until 2001. Mouton \cite{mouton95:numeric} and
+Barthèlemy \cite{barthelemy01:figured} have a general but informative
+survey on the topic.
 
 \nota{falar como serão feitas as coisas nesse artigo}
 
@@ -100,42 +99,14 @@ effectiveness.
 \label{sec:problem}
 
 The problem of automated harmonic analysis might be understood by
-dividing it into three non-disjoint subproblems. First, it is
-necessary to have the musical piece in a form suitable for analysis,
-such as MIDI, textual scores, or any other similar format. Thus,
-performinc harmonic analysis of a given piece is done by determining
-the harmonic-significant segments of it, and then assigning a chord
-name and a tonal function for each of those. A few sub problems might
-arise, such as determining meter, or a correct pitch spelling,
-depending on the suitability of the input format.
+dividing it into three sub-problems. The first problem is to divide a
+given piece in segments with harmonic significance. The second is to
+label each segment with a chord name. The last problem is to assign a
+tonal function to each chord.
 
-% Alguns sistema geram acompanhamento on the fly
-% \cite{cunha99:intelligent,cunha99:intelligent}, outros lidam com
-% harmonização \cite{allan05:harmonizing}. o objetivo desse artigo e a
-% análise de trechos musicais simbolicos.
-
-Some systems might use this information for automatically improvising
-over a tune (possibly on the fly
-\cite{cunha99:intelligent,cunha99:intelligent}, as it is performed,
-or harmonizing \cite{allan05:harmonizing}. In this article we focus
-mostly on systems that analyse simbolic data with the intention of
-properly identifying each segment's harmonic function and/or
-
-Automatically analyzing music scores with a computer was first
-proposed by Winograd, in 1968, using a formal-language-based approach,
-with generative grammars for tonal music. This model, while
-interesting for its groundbreaking consequences, was of little
-practical use, generating a proper grammar for tonal music being a
-non-trivial task, and parsing music with it even more so (as the
-grammars produced tended to be either context-sensitive of
-ambiguous). Thus, several other approaches have been tried, such as
-pattern-matching over chord templates in
-\cite{pardo02:algorithms,barthelemy01:figured} and neural networks, as
-in \cite{tsui02:_harmon_analy_using_neural_networ}, with varying
-degrees of success. No method, however, reliably detects the proper
-harmonic segmentation of a given piece, nor cosiders fully musical
-context, making these solutions partial by essence.
-
+A few additional sub-problems might arise from the input format, such as
+determining meter or a correct pitch spelling depending on its
+suitability.
 
 \section{Representation}
 
@@ -402,14 +373,30 @@ completos o suficiente \cite{rothgeb79:simulating}.
 
 Pardo states that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
-\cite{pardo02:algorithms} before his paper. This defficiency in the
-literature makescomparing different systems difficult.
+\cite{pardo02:algorithms} before his paper. 
+
+%%%%%%%%%
+The lack of this sort of data in the literature makes dificult to
+compare different systems.
+
+This defficiency (deficiency) in the literature makescomparing
+different systems difficult.
+%%%%%%%%%%%%
 
 Also, there is not a specific framework for comparison of different
 algorithms and results. In fact, only Pardo \cite{pardo00:automated}
 and Barthelemy \cite{barthelemy01:figured} published specific
+
+%%%%%% 
+comparisons between the result of theirs programs and the result of
+the programs of other authors. Pardo compares his results with
+\cite{temperley99:modeling} while Barthelemy compares his model
+
 comparisons between their results other authors'. Pardo compares his
-with \cite{temperley99:modeling} while Barthelemy measures his model
+<what?> with \cite{temperley99:modeling} while Barthelemy measures his
+model
+%%%%%%%
+
 against \cite{maxwell92:expert}, \cite{pardo99:automated} and
 \cite{temperley96:algorithm}. This is the most comprehensive
 comparision we know of. However, they are based on the results
@@ -449,7 +436,6 @@ and sub-sets can help identifying harmonic elements from the non-harmonic.
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
-%\nocite{*} 
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
