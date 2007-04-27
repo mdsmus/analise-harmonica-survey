@@ -89,7 +89,7 @@ automatic musical analysis.
 
 This paper will begin with....
 
-\section{The problem}
+\section{The problem of automated harmonic analysis}
 \label{sec:problem}
 
 The problem of automated harmonic analysis might be understood by
@@ -349,34 +349,24 @@ seção 3.1 de \cite{byrd02:problems}
 
 %% escrever: o que é contexto musical
 
-
-
 The harmonic context is important in a automated harmonic analysis
-system because some chords and notes (non-chord notes) can be
-understood only if this context is considered. The harmonic context
-helps to solve problems as ambiguities in chord analysis and
-identification of non-chord notes and suspension and ritardo
-resolutions.
+system because some chords and notes (non-chord notes) only can be
+correctly understood if this context is considered. The use of
+harmonic context helps to solve problems as ambiguities in chord
+analysis, identification of non-chord notes and of suspension and
+ritardo resolutions.
 
-Most of systems for automated harmonic analysis don't consider the
-harmonic context in their processing
-\cite{harte.sandler.ea:symbolic,pardo99:automated,pardo02:algorithms}.
-Errors in chord analysis can be solved considering harmonic context.
-The recent research projects that develop algorithms for automated
-harmonic analysis doesn't make use of the harmonic context. However
-the answer errors are, in most of cases related to context.
-
-Some of these research projects consider harmonic context, as the NUSO
-system \cite{mouton95:numeric}, that uses harmonic context to define
-tonality through rules that consider non-chord notes in accompanied
-melody, Alberti bass and baroque style; the MusES system that uses
-relations between adjacent chords to define the best possible tonality
-for a chord; and the automated harmonic analysis method developed by
-\cite{barthelemy01:figured} that has a simple algorithm to process
-non-chord notes that produces errors. It consider that every non-chord
-note is followed by a conjunct movement. The authors show problems
-related to ambiguities, non-regularity of harmonic rhythm,
-non-universality of harmonic rules.
+Some automated harmonic analysis systems consider harmonic context, as
+the NUSO system \cite{mouton95:numeric}, that uses harmonic context to
+define tonality through rules that consider non-chord notes in
+accompanied melody, Alberti bass and baroque style; the MusES system
+that uses relations between adjacent chords to define the best
+possible tonality for a chord; and the automated harmonic analysis
+method developed by \cite{barthelemy01:figured} that has a simple
+algorithm to process non-chord notes that produces errors. It consider
+that every non-chord note is followed by a conjunct movement.  The
+authors show problems related to ambiguities, non-regularity of
+harmonic rhythm, non-universality of harmonic rules.
 
 Other projects don't consider harmonic context, as
 \cite{harte.sandler.ea:symbolic}, that says that in classical harmony
@@ -404,6 +394,35 @@ completos o suficiente \cite{rothgeb79:simulating}.
 
 \section{Tests and benchmarks}
 
+Pardo states that ``no researchers have published statistical
+performance results on a system designed to analyze tonal music''
+\cite{pardo02:algorithms} before his paper. And not many have
+published this sort of data after him. The lack of this data in the
+literature makes dificult to compare different systems.
+
+There is not a specific framework for comparison among different
+algorithms and results. In fact, only Pardo \cite{pardo00:automated}
+and Barthelemy \cite{barthelemy01:figured} published specific
+comparisons between the result of theirs programs and the result of
+other authors. Pardo compares his results with
+\cite{temperley99:modeling} while Barthelemy compares his model
+against \cite{maxwell92:expert}, \cite{pardo99:automated} and
+\cite{temperley96:algorithm}. This is the most comprehensive
+comparision whe know of. However, these comparisons were based on the
+results published in papres and not in a direct implementation. This
+means that only the examples analysed by the authors can be compared.
+
+We believe that it is important to have standard tests in colections
+of examples. As stated in the section \ref{sec:introduction} of this
+paper, we believe that having a large corpus of music is necessary to
+the success of testing a specific algorithm. Pickens
+\cite{pickens02:polyphonic} not only agrees that is necessary to have
+standard tests as he uses a large corpus of music in his research.
+
+Ele usa 45 trechos musicais do Kostka e Payne \cite{kostka03:tonal}
+(compilados por Temperley). Alguns desses materiais, assim como
+outros, estão disponíveis (em MIDI) em \cite{temperley01:materials}.
+
 %% TODO: citar
 Normaly work with an pre-maid answer key that sever as bechmarking.
 That's used in .... 
@@ -411,44 +430,6 @@ That's used in ....
 Sometimes the authors disagree with the results in
 the answer key like in \cite{pardo02:algorithms}.
 
-Pardo afirma em \cite{pardo02:algorithms} que nenhum pesquisador
-publicou resultados estatísticos de performance em um sistema para a
-análise de musica tonal antes desse artigo. A falta dessas medidas na
-literatura faz com que seja difícil comparar diferentes sistemas. Ele
-implementou um sistema simples que permite ser duplicado e extendido
-por outros. O sistema é feito para explorar as propriedades
-computacionais básicas dos algoritmos e para prover uma base na qual
-outros sistemas podem ser mensurados. Dessa maneira as mudanças
-introduzidas por elementos como contexto tonal, regras de condução de
-vozes e informação métrica podem ser medidas
-\cite{pardo02:algorithms}. Ele usa 45 trechos musicais do Kostka e
-Payne \cite{kostka03:tonal} (compilados por Temperley). No apêndice
-ele lista quais são os trechos. Alguns desses materiais, assim como
-outros, estão disponíveis (em MIDI) em \cite{temperley01:materials}.
-\cite{pickens02:polyphonic} concorda que testes padrões em coleções de
-exemplos são importantes
-
-\cite{pardo00:automated} faz uma comparação da análise da Sonata op.
-13 de Beethoven, segundo movimento, compassos 1--8 com
-\cite{temperley99:modeling}; \cite{barthelemy01:figured} compara seu
-modelo com \cite{maxwell92:expert}, \cite{pardo99:automated} e
-\cite{temperley96:algorithm}. This is (probably) the most
-comprehensive comparision whe know of. O principal problema é que ele
-se basea nos \textit{artigos} esses autores, e não na implementação.
-Isso significa que somentes os exemplos analisados pelos autores podem
-ser comparados.
-
-Alguns sistemas tem o código-fonte disponível na internet como
-\cite{sleator03:melisma}, outros tem um algoritmo detalhado em código
-ou pseudo-código
-\cite{mouton95:numeric,oliveira01:codificacao,pardo02:algorithms} que
-permitem recontruir a pesquisa ao menos em parte. Finalmente alguns
-desenvolvem modelos matemáticos \cite{raphael03:harmonic}.
-
-\cite{pickens02:polyphonic} claims to be the first to retrieve data
-from polyphonic symbolic collections using polyphonic audio queries.
-It also uses a large corpus of music, 3150 pieces.
-\cite{pickens02:harmonic} also uses this large corpus
 
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
