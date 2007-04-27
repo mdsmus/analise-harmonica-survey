@@ -23,7 +23,7 @@
 %% artigo deve ter 4 ou 8 paginas
 
 \begin{abstract}
-Since Winograd in 1968, the problem of using a computer to do
+Since Winograd in 1968, the problem of using the computer to do
 automated harmonic analysis has been approached, from several different
 directions, most with reasonable success. On the other hand, little
 has been done towards stabilishing standard benchmarks, and
@@ -114,9 +114,6 @@ or harmonizing \cite{allan05:harmonizing}. In this article we focus
 mostly on systems that analyse simbolic data with the intention of
 properly identifying each segment's harmonic function and/or
 
-\section{Historic context}
-\label{sec:historic-context}
-
 Automatically analysing music scores with a computer was first
 proposed by Winograd, in 1968, using a formal-language-based approach,
 with generative grammars for tonal music. This model, while
@@ -132,32 +129,6 @@ degrees of success. No method, however, reliably detects the proper
 harmonic segmentation of a given piece, nor cosiders fully musical
 context, making these solutions partial by essence.
 
-
-\section{Harmonic context}
-\label{sec:harmonic-context}
-
-Most of systems for automated harmonic analysis don't consider the
-harmonic context in their processing
-\cite{harte.sandler.ea:symbolic,pardo99:automated,pardo02:algorithms}.
-Errors in chord analysis can be solved considering harmonic context.
-
-\section{Harmonic segmentation}
-\label{sec:harm-segm}
-
-The other crucial, though underrepresented in literature, problem in
-the area of automated harmonic analysis is the division of a given
-piece in harmonic significant segments before associating these
-segments with chords and tonal functions. This problem is non-trivial,
-since the number of possible partition points in a given piece is
-proportional to the number of notes - usually divided by a constant
-representing the number of voices and likelihood of chords and
-double-steps - and, so, the number of possible segmentations is
-approximately two to the power of the number of notes in a score.
-
-Also, the segmentation problem isn't clearly formalized in musical
-theory texts, making, thus, effective algorithms for solving it
-non-trivial. We believe that a more systematic approach to music
-segmentation might wield considerably better results.
 
 \section{Representation}
 
@@ -322,13 +293,27 @@ misbehave on slightly different scores.
 \section{Segmentation}
 % passos
 
-The segmentation problem for harmonic analysis of tonal music is
-largely unsolved. Due to its high computational complexity - the
-number of possible partitions of a given piece being roughly
-proportional to two to the power of the notes used - and its strict
-dependance on context, efficient and comprehensive solutions for it
-are hard to find. Still, it is of fundamental importance, for the rest
-of the analysis is constrained by the existing segmentation.
+The other crucial, though underrepresented in literature, problem in
+the area of automated harmonic analysis is the division of a given
+piece in harmonic significant segments before associating these
+segments with chords and tonal functions. This problem is non-trivial,
+since the number of possible partition points in a given piece is
+proportional to the number of notes - usually divided by a constant
+representing the number of voices and likelihood of chords and
+double-steps - and, so, the number of possible segmentations is
+approximately two to the power of the number of notes in a score.
+
+The segmentation problem isn't clearly formalized in musical theory
+texts, complicating the task of designing an effective algorithmical
+solution for it. We believe that a more systematic approach to music
+segmentation might wield considerably better results, since the
+segmentation problem for harmonic analysis of tonal music is largely
+unsolved. Due to its high computational complexity - the number of
+possible partitions of a given piece being roughly proportional to two
+to the power of the notes used - and its strict dependance on context,
+efficient and comprehensive solutions for it are hard to find. Still,
+it is of fundamental importance, for the rest of the analysis is
+constrained by the existing segmentation.
 
 \cite{prather96:harmonic} approaches the problem in a simplified
 fashion, with chords being assumed to change only in the beats of a
@@ -364,6 +349,8 @@ seção 3.1 de \cite{byrd02:problems}
 
 %% escrever: o que é contexto musical
 
+
+
 The harmonic context is important in a automated harmonic analysis
 system because some chords and notes (non-chord notes) can be
 understood only if this context is considered. The harmonic context
@@ -371,6 +358,10 @@ helps to solve problems as ambiguities in chord analysis and
 identification of non-chord notes and suspension and ritardo
 resolutions.
 
+Most of systems for automated harmonic analysis don't consider the
+harmonic context in their processing
+\cite{harte.sandler.ea:symbolic,pardo99:automated,pardo02:algorithms}.
+Errors in chord analysis can be solved considering harmonic context.
 The recent research projects that develop algorithms for automated
 harmonic analysis doesn't make use of the harmonic context. However
 the answer errors are, in most of cases related to context.
