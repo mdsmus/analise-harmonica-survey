@@ -4,8 +4,11 @@
 \usepackage[T1]{fontenc}
 \usepackage{url}
 
-\title{A Survey of Automated Harmony Recognition and Tonality
-  Detection Techniques}
+\newcommand{\nota}[1]{\textbf{nota:} \textit{#1}}
+
+\hyphenation{nea-po-li-tan}
+
+\title{A Survey of Automated Harmony Analysis Techniques}
  
 \oneauthor
   {Pedro Kröger, Alexandre Passos, Marcos Sampaio}
@@ -34,19 +37,13 @@ the subject, as a means to enable more focused research on the area.
 
 \section{Introduction}
 \label{sec:introduction}
-% pedro
 
-\subsection{Introduction}
-\label{sec:introduction-1}
-
-
-%%% kroger:  basicamente falar que mir is a hot topic
-Music information retrieval .... Some research focus on music
-retrieval by query-by-humming
-\cite{hu02comparison,pickens02:polyphonic,cano02:use}, in the
-development of tools for digital libraries
-\cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, in the
-detection of musical patters
+Music information retrieval has received increasing attention
+recently. Some research focus on music retrieval by query-by-humming
+\cite{hu02comparison,pickens02:polyphonic}, development of tools for
+digital libraries
+\cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, detection of
+musical patters
 \cite{lartillot-nakamura03:discovering,dannenberg02:pattern,lartillot02:integrating}
 that may help, among other things, to help identifying musical styles
 \cite{dixon03:classification,pampalk03:exploring,rauber02:using}, and
@@ -56,56 +53,50 @@ in problems related to musical representation
 While the main goal in music information retrieval `` is not an
 understanding of music. It is not to develop a better theory of music,
 or even to analyze music. The goal is retrieval''
-\cite{pickens01:survey}, others researchers seek a better
-understanding of elements and musical processes trough the automatic
-analysis by a computer. We agree with Mouton that ``only automatic
-analysis of a large corpus of tonal music may eventually provide us
-(the human) with insights on the very nature of tonal music''
-\cite{mouton95:numeric}. Computer-based musical analysis is important
-because it can bring new insights in this area, in the same way the
-use of the computer in vision and problem solving brought new insights
-these areas \cite{temperley99:modeling}.
+\cite{pickens01:survey}, other researchers seek a better understanding
+of elements and musical processes trough the automatic analysis by a
+computer. We agree with Mouton that ``only automatic analysis of a
+large corpus of tonal music may eventually provide us (the human) with
+insights on the very nature of tonal music'' \cite{mouton95:numeric}.
+Computer-based musical analysis is important because it can bring new
+insights in this area, in the same way the use of the computer in
+vision and problem solving brought new insights these areas
+\cite{temperley99:modeling}.
 
-%%% kroger: scoring = arranjo?
 There are many practical aplications for automatic music analysis,
-among then are automated scoring, detection of posible logical
+among then are automated arranging, detection of posible logical
 mistakes in scores, database search, automatic accompaniment
 generation, and statitical analysis of musical styles for automated
-composition \cite{pardo02:algorithms,temperley99:modeling}. Raphael and
-%%% kroger: passive voice sucks badly
-Stoddard emphasize the kinds of searches that can be made, where
+composition \cite{pardo02:algorithms,temperley99:modeling}. 
 
-\begin{quote}
-  the most obvious application of harmonic analysis in music
-  information retrieval (MIR) would treat queries phrased in the
-  language of harmony: What are the earliest examples of the use of
-  German augmented sixth chords or Neapolitan chords? Which Beatles
-  songs have deceptive cadences? Where can I buy the piece I heard on
-  the radio with the harmonic progression I vi IV V I repeated many
-  times? It is likely that such applications will be most useful to
-  musicologists since the mere formulation of such queries requires a
-  more sophisticated understanding of harmony than would be expected
-  of an average music enthusiast. \cite{raphael03:harmonic}
-\end{quote}
+A specific kind of musical analysis is what is known as functional
+harmonic analysis, where a musical passage is represented by a
+sequence of chords. By definition, automated harmony analysis must be
+done completely by computer programs without human intervention.
+Typically the system accepts musical data as input in some format
+(such as MIDI, scores in symbolic or numeric format, and so on) and
+returns as result information such as chords roots, chords types, or
+symbols in roman numerals indicating the tonal function.
 
-By definition, automated harmony analysis must be done completely by
-computer programs, without human intervention. Typically the system
-accepts as input musical data in some format (such as MIDI, scores in
-symbolic or numeric format, and so on) and returns as result
-%%% kroger: tipo de acordes em ingles?
-information such as chords roots, chords types, or symbols indicating
-the tonal function. In this paper the terms ``analysis'' and
-``harmonic analysis'' will be loosely used to mean automated harmonic
-analysis by computer.
+This paper gives an overview of the current status of automated
+harmonic analysis. To our knowledge there is no comprehensive survey
+on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
+of the state of the art until 2001 and \cite{mouton95:numeric} and
+\cite{barthelemy01:figured} have a general but informative survey on
+automatic musical analysis.
 
-\subsection{The problem}
+\nota{falar como serão feitas as coisas nesse artigo}
+
+This paper will begin with....
+
+\section{The problem}
 \label{sec:problem}
 
 The problem of automated harmonic analysis might be understood by
 dividing it into three non-disjoint subproblems. First, it is
 necessary to have the musical piece in a form suitable for analysis,
 such as MIDI, textual scores, or any other similar format. Thus,
-performinc harmonic analysis of a given pieve is done by determining
+performinc harmonic analysis of a given piece is done by determining
 the harmonic-significant segments of it, and then assigning a chord
 name and a tonal function for each of those. A few sub problems might
 arise, such as determining meter, or a correct pitch spelling,
@@ -123,10 +114,7 @@ or harmonizing \cite{allan05:harmonizing}. In this article we focus
 mostly on systems that analyse simbolic data with the intention of
 properly identifying each segment's harmonic function and/or
 
-\cite{barthelemy01:figured} is probably the most complet survey to
-this date.
-
-\subsection{Historic context}
+\section{Historic context}
 \label{sec:historic-context}
 
 Automatically analysing music scores with a computer was first
@@ -145,7 +133,7 @@ harmonic segmentation of a given piece, nor cosiders fully musical
 context, making these solutions partial by essence.
 
 
-\subsection{Harmonic context}
+\section{Harmonic context}
 \label{sec:harmonic-context}
 
 Most of systems for automated harmonic analysis don't consider the
@@ -153,7 +141,7 @@ harmonic context in their processing
 \cite{harte.sandler.ea:symbolic,pardo99:automated,pardo02:algorithms}.
 Errors in chord analysis can be solved considering harmonic context.
 
-\subsection{Harmonic segmentation}
+\section{Harmonic segmentation}
 \label{sec:harm-segm}
 
 The other crucial, though underrepresented in literature, problem in
