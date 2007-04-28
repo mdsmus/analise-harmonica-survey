@@ -108,48 +108,30 @@ A few additional sub-problems might arise from the input format, such as
 determining meter or a correct pitch spelling depending on its
 suitability.
 
-\section{Representation}
+\section{Music representation and ...}
 \label{sec:representation}
 
-\nota{re-escrever tudo}
+%%% intro geral
 
 Before any attempt is made to extract information from a given musical
 piece, it must be represented in a form suitable to automated
-analysis.
-
-Representing musical information on a computer is not a solved
-problem, there being a multitude of possible codifications, from more
-sound-oriented ones - such as MIDI and piano roll notation - to
-notations, such as \cite{kroger06:processo}, specifically made to
-better transmit harmonic information.
+analysis. There is a broad number of codifications in existence. There
+are codifications for performance, sound synthesis, computer games,
+musical notation, braille notation, folk songs, musical bibliography,
+and many others \cite{selfridge-field97:beyond}.
 
 Interestingly, the choice of a proper codification influences the
-results obtainable from the later analysis. For example, a
-representation which fails to distinguish enharmonic pitches might
-make harder to recognize a neapolitan sixth from an augmented seventh.
-Thus, it is crucial that a good input format be chosen so as to
-minimize errors and necessary human input in the analysis.
+results obtainable from the later analysis. For example, chords that
+sound the same but have different tonal function and are spelled
+differently may not be detected in a representation that does not take
+in account enharmonic spelling. For instance, in
+\cite{pardo02:algorithms} a German augmented six chord is mistakenly
+identified as a dominant seventh chord.
 
-\cite{harte.sandler.ea:symbolic} suggests an unambiguous notation for
-chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
-Since this notation is too verbose, the author himself proposes a
-shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
-proposed a notation for chords using a list in the format
-\texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
-could be notated as \texttt{(g major 7 1)}. This rationale also enables
-a more verbose notation like 
+%%% tipos de representação que são usados
 
-\begin{verbatim}
-(:fundamental g
- :added-note 7
- :inversion first
- :type diminished)
-\end{verbatim}
-
-
-In \cite{prather96:harmonic}, pitch height is ignored, as are
-accidents, and notes are represented as pitch classes only, ignoring
-extra information presente in accidents. Meter, also, is widely
+In \cite{prather96:harmonic} notes are represented as pitch classes
+only, ignoring enarmonic information. Meter, also, is widely
 simplified, being reduced to a percentage of time a given pitch class
 is sounding in a given measure. In \cite{buzzanca02:supervised}, meter
 is represented as the logarithm of beat length, ignoring most complex
@@ -162,11 +144,18 @@ towards its applicability in harmonic analysis.
 \cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
 system, representing pitches only as pitch classes, ignoring meter and
 all forms of context information, with the intention of providing a
-basis for sutdy of better
-algorithms. \cite{tsui02:_harmon_analy_using_neural_networ} and other
-systems differentiate in importance notes having different meter
-strength.
+basis for sutdy of better algorithms.
+\cite{tsui02:_harmon_analy_using_neural_networ} and other systems
+differentiate in importance notes having different meter strength.
 
+A few numeric representations such as \cite{hewlett92:base40} and
+\cite{oliveira01:codificacao} where developed to keep the
+characteristics of tonal music, being the last one is particularly
+elegant. It is based on a modulo 96 where the common pitch class
+notation uses modulo 12. We believe that the use of this system can
+simplify the research in harmonic analysis.
+
+%%% representação específicas para acordes (tipos de saida da analise)
 
 Probably the simplest harmonic output is the key of a musical
 passage. Most recent research on estimation of musical keys is
@@ -185,25 +174,28 @@ $^6_5$. Most systems, as those from
 chord notation like A$\flat$7, D$\flat$min, for A flat with minor
 seventh and D flat minor, respectively.
 
+\nota{checar se algum sistema mostra numerais romanos como saida}
+
 \cite{Ulrich77IJ} performs a functional analysis of chords, indicating
-information such as ``tonic of G'', ``substitute for x+2''.
-%% precisa checar
-But no system seems to generate a functional analysis like ii$^6_6$,
-V7, and so on.
-%% duvidoso. Alguns sistemas fazem isso, se não me engano.
+information such as ``tonic of G'', ``substitute for x+2''. But no
+system seems to generate a functional analysis like ii$^6_6$, V7, and
+so on.
 
-A few numeric representations such as \cite{hewlett92:base40} and
-\cite{oliveira01:codificacao} where developed to keep the
-characteristics of tonal music, being the last one is particularly
-elegant. It is based on a modulo 96 where the common pitch class
-notation uses modulo 12. We believe that the use of this system can
-simplify the research in harmonic analysis.
+\cite{harte.sandler.ea:symbolic} suggests an unambiguous notation for
+chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
+Since this notation is too verbose, the author himself proposes a
+shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
+proposed a notation for chords using a list in the format
+\texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
+could be notated as \texttt{(g major 7 1)}. This rationale also enables
+a more verbose notation like 
 
-The major problem of not taking in account the enharmonic differences
-is that chords that sound the same but have different tonal function
-may not be detected. For instance, in \cite{pardo02:algorithms} a
-German augmented six chord is mistakenly identified as a dominant
-seventh chord.
+\begin{verbatim}
+(:fundamental g
+ :added-note 7
+ :inversion first
+ :type diminished)
+\end{verbatim}
 
 \section{Proposed Solutions}
 \label{sec:proposed-solutions}
