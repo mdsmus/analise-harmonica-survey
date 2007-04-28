@@ -272,6 +272,7 @@ each segment, which is difficult. Most systems make little use of
 proper context, according to Barthèlemy \cite{barthelemy01:figured}.
 
 \nota{explicar melhor}
+
 Prather \cite{prather96:harmonic} approaches the problem in a
 simplified fashion, with chords being assumed to change only in the
 beats of a given measure, and tonal information spread between two
@@ -306,52 +307,43 @@ music is largely unsolved.
 \section{Harmonic Context}
 % marcos
 
-%% escrever: o que é contexto musical
+\nota{escrever o que é contexto musical}
+
+\nota{reescrever junto com intro}
 
 The harmonic context is important in an automated harmonic analysis
 system because some chords and notes (such as non-chord notes) only
 can be correctly understood when it is considered. Proper use of
 harmonic context helps solving problems such as ambiguities in chord
-analysis, identification of non-chord notes and suspension and
-ritardo of resolutions.
+analysis, identification of non-chord notes and suspension and ritardo
+of resolutions.
 
-Some automated harmonic analysis systems consider harmonic context, as
-the NUSO system \cite{mouton95:numeric}, that uses harmonic context to
+The NUSO system \cite{mouton95:numeric} uses harmonic context to
 define tonality through rules considering non-chord notes in
-accompanied melody, Alberti bass and baroque style; the MusES system,
-using relations between adjacent chords to define the best possible
-tonality for a chord; and the automated harmonic analysis method
-developed by \cite{barthelemy01:figured} that has a simple algorithm
-to process non-chord notes, often producing errors. It considers that
-every non-chord note is followed by a conjunct movement.  The authors
-show problems related to ambiguities, non-regularity of harmonic
-rhythm, non-universality of harmonic rules.
+accompanied melody, Alberti bass, and baroque style. The MusES system
+<<cita>> uses relations between adjacent chords to define the best
+possible tonality for a chord. Finally, the automated harmonic
+analysis method developed by \cite{barthelemy01:figured} has a simple
+algorithm to process non-chord notes, often producing errors. It
+assumes that every non-chord note is followed by a conjunct movement,
+which is not always true.
 
-Other projects don't consider harmonic context, as
-\cite{harte.sandler.ea:symbolic}, who says that in classical harmony
+Some projects don't take harmonic context into account. Harte et al.
+\cite{harte.sandler.ea:symbolic} ignores key context in their model
+for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
+developed a set of algorithms for automated chordal analysis,
+purposefully making minimal use of harmonic context.
+
+\nota{expandir sobre os problemas}
+
+\cite{harte.sandler.ea:symbolic} says that in classical harmony
 analysis the ``chords are notated in the context of a given key'', but
-ignores key context in their model for chord labels; and
-\cite{pardo99:automated} and \cite{pardo02:algorithms}, that developed
-a set of algorithms for automated chordal analysis purposefully making
-minimal use of harmonic context. The error frequencies are classified
-and most of them are related to harmonic context, specifically
-non-chord notes and cadence recognition. The authors agree that a
-deeper understanding of voice leading and knowledge about neighbour
-chords would help adjusting chord-label weights.
 
-%% devo incluir isso?
-% According to \cite{mouton95:numeric}, some works consider the harmonic
-% context in automated harmonic analysis (c.f. ).
-
-\nota{encaixar ou remover texto abaixo}
-
-John Rothgeb foi um dos primeiros a lidar com o problema da
-harmonização automática \cite{rothgeb68:harmonizing}, nesse caso o
-problema do ``baixo não cifrado'' (i.e. uma técnica onde o
-intrumentista harmoniza um baixo dado mas sem as cifras do baixo
-cifrado). Ele implementou em computador regras de tratados do século
-XVIII e logo ficou claro que os tratados não forneciam detalhes
-completos o suficiente \cite{rothgeb79:simulating}.
+The error frequencies are classified and most of them are
+related to harmonic context, specifically non-chord notes and cadence
+recognition. The authors agree that a deeper understanding of voice
+leading and knowledge about neighbour chords would help adjusting
+chord-label weights.
 
 \section{Tests and benchmarks}
 
