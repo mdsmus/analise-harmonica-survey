@@ -225,11 +225,11 @@ Pattern-matching over chord templates is used in
 \cite{prather96:harmonic}, \cite{pardo02:algorithms},
 \cite{pardo99:automated} and \cite{barthelemy01:figured}, with the
 latter using a somewhat more complex model, being capable of ignoring
-ornamental notes. A rule-based expert system approach is used in
-\cite{buzzanca01:rule}, but for music style regognition.
-\cite{wang97:generating} uses three passes for chord identification,
-all of them assuming a constant tonality, and consisting basically of
-pattern-matching on many levels. \cite{temperley99:modeling} uses a
+ornamental notes. \cite{wang97:generating} uses three passes for chord
+identification, all of them assuming a constant tonality, and
+consisting basically of pattern-matching on many levels. A rule-based
+expert system approach is used in \cite{buzzanca01:rule}, but for
+music style regognition. \cite{temperley99:modeling} uses a
 sophisticated preference-rule based expert system to identify the
 roots of the chords in a piece, but it avoids the problems of tonality
 detection and harmonic function identification.
@@ -244,19 +244,19 @@ merge isn't possible.
 \subsection{Statistical Approaches}
 
 
-Probabilistic and statistical models for automated harmonic analysis
-are few, and far in between, but they have made promising
+Statistical models for automated harmonic analysis are few, and far in
+between, but they have made promising
 results. \cite{tsui02:_harmon_analy_using_neural_networ} and
 \cite{buzzanca02:supervised} use back-propagating neural networks with
-far better results. \cite{raphael03:harmonic} uses a hidden Markov
-model for chordal analysis and tonal recognition.
+cinsiderable efficiency. \cite{raphael03:harmonic} uses a hidden
+Markov model for chordal analysis and tonal recognition.
 \cite{noland.sandler:key} also uses a Hidden Markov model, but the
 states represent possible keys and the inputs are the chord
 changes. \cite{temperley04:bayesian} uses a bayesian model for key
 recognition.
 
-Probabilistic models, while not specifically addressing this problem,
-differ from more deterministic ones in not specifically ignoring
+Statistic models, while not specifically addressing this problem,
+differ from more rule-based ones in not specifically ignoring
 harmonical context information, thus handling some cases slightly
 better. On the other hand, due to their obliviousness to musical
 theory, they are very sensitive on the training data, tending to
@@ -269,19 +269,21 @@ misbehave on slightly different scores.
 The other crucial, though underrepresented in literature, problem in
 the area of automated harmonic analysis is the division of a given
 piece in harmonic significant segments before associating these
-segments with chords and tonal functions. This problem is non-trivial,
-since the number of possible partition points in a given piece is
-proportional to the number of notes - usually divided by a constant
-representing the number of voices and likelihood of chords and
-double-steps - and, so, the number of possible segmentations is
-approximately two to the power of the number of notes in a score.
+segments with chords and tonal functions. The segmentation problem
+isn't clearly formalized in musical theory texts, complicating the
+task of designing an effective algorithmical solution for it. We
+believe that a more systematic approach to music segmentation might
+wield considerably better results, since the segmentation problem for
+harmonic analysis of tonal music is largely unsolved. 
 
-The segmentation problem isn't clearly formalized in musical theory
-texts, complicating the task of designing an effective algorithmical
-solution for it. We believe that a more systematic approach to music
-segmentation might wield considerably better results, since the
-segmentation problem for harmonic analysis of tonal music is largely
-unsolved. Due to its high computational complexity - the number of
+This problem is non-trivial, since the number of possible partition
+points in a given piece is proportional to the number of notes -
+usually divided by a constant representing the number of voices and
+likelihood of chords and double-steps - and, so, the number of
+possible segmentations is approximately two to the power of the number
+of notes in a score.
+
+Due to its high computational complexity - the number of
 possible partitions of a given piece being roughly proportional to two
 to the power of the notes used - and its strict dependance on context,
 efficient and comprehensive solutions for it are hard to find. Still,
