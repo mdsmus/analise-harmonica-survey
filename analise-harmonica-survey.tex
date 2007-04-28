@@ -254,44 +254,43 @@ is employed by Raphael \cite{raphael03:harmonic} and Noland Sandler
 \section{Segmentation}
 % passos
 
-The other crucial, though underrepresented in literature, problem in
-the area of automated harmonic analysis is the division of a given
-piece in harmonic significant segments before associating these
-segments with chords and tonal functions, according to Pardo
-\cite{pardo02:algorithms} and Byrd \cite{byrd02:problems}. The
-segmentation problem isn't clearly formalized in musical theory texts,
-complicating the task of designing an effective algorithmical solution
-for it. We believe that a more systematic approach to music
-segmentation might wield considerably better results, since the
-segmentation problem for harmonic analysis of tonal music is largely
-unsolved.
+The division of a given piece in harmonic significant segments is a
+crucial problem in the area of automated harmonic analysis, although
+underrepresented in literature
+\cite{pardo02:algorithms,byrd02:problems}.
+
+The task of designing an effective algorithmical solution for the
+problem of segmentation is difficult because the segmentation problem
+isn't clearly formalized in the music theory literature. 
 
 This problem is of high computational complexity, since the number of
 possible partition points in a given piece is proportional to the
-number of notes - usually divided by a constant representing the
-number of voices and likelihood of chords and double-steps - and so
-the number of possible segmentations is approximately two to the power
-of the number of notes in a score. To reduce the space of possible
-partitions one must consider the harmonic context of each segment,
-which is difficult, most systems making little use of proper context,
-according to Barthèlemy \cite{barthelemy01:figured}.
+number of notes. The number of possible segmentations is approximately
+two to the power of the number of partition points. To reduce the
+space of possible partitions one must consider the harmonic context of
+each segment, which is difficult. Most systems make little use of
+proper context, according to Barthèlemy \cite{barthelemy01:figured}.
 
-\cite{prather96:harmonic} approaches the problem in a simplified
-fashion, with chords being assumed to change only in the beats of a
-given measure, and tonal information spread between two measures being
-ignored. \cite{bod01:memory} proposes a memory-based model,
-contrasting it with rule-based ones, with good results, although his
-approach to segmentation in unrelated to harmonic analysis, and thus
-not very relevant. \cite{barthelemy01:figured} uses melodic and
-harmonic information to construct the segmentation bottom-up, i.e.
-merging two adjacent segments if and only every sound of the first
-belongs in the second and vice versa or if the union (with or without
-ornamental notes) of both segments can be exactly mapped onto a
-chord. The process starts with minimal segments and ends only when no
-more merges can be performed. \cite{pardo02:algorithms} and
-\cite{pardo99:automated} perform segmentation backwards, by comparing
-all possible (or likely, in another version of the algorithm)
-segmentations, choosing the ones that better match chord templates.
+\nota{explicar melhor}
+Prather \cite{prather96:harmonic} approaches the problem in a
+simplified fashion, with chords being assumed to change only in the
+beats of a given measure, and tonal information spread between two
+measures being ignored.
+
+\nota{explicar melhor} 
+
+\cite{barthelemy01:figured} uses melodic and harmonic information to
+construct the segmentation bottom-up, i.e. merging two adjacent
+segments if and only every sound of the first belongs in the second
+and vice versa or if the union (with or without ornamental notes) of
+both segments can be exactly mapped onto a chord. The process starts
+with minimal segments and ends only when no more merges can be
+performed.
+
+\cite{pardo02:algorithms} and \cite{pardo99:automated} perform
+segmentation backwards, by comparing all possible (or likely, in
+another version of the algorithm) segmentations, choosing the ones
+that better match chord templates.
 
 %%kroger: completar
 Segmentation is also a problem in research dealing with audio formats.
@@ -301,6 +300,8 @@ structure analysis from audio'' \cite{maddage04:content} combines
 audio and symbolic representation for music structure analysis,
 including chord detection.
 
+We believe the segmentation problem for harmonic analysis of tonal
+music is largely unsolved.
 
 \section{Harmonic Context}
 % marcos
@@ -394,6 +395,10 @@ only agrees with that but uses a large corpus of music, consisting of
 
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
+
+We believe that a more systematic approach to music segmentation might
+wield considerably better results,
+
 
 Although many aspects of music can be understood using mathematical
 models such as the set theory (of post-tonal theory), it is not clear
