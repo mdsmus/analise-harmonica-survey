@@ -111,24 +111,24 @@ suitability.
 \section{Music representation and ...}
 \label{sec:representation}
 
-%%% intro geral
-
-Before any attempt is made to extract information from a given musical
-piece, it must be represented in a form suitable to automated
-analysis. There is a broad number of codifications in existence. There
-are codifications for performance, sound synthesis, computer games,
-musical notation, braille notation, folk songs, musical bibliography,
-and many others \cite{selfridge-field97:beyond}.
+A musical piece must be represented in a form suitable to automated
+analysis before making any attempt to extract information. There is a
+broad number of codifications in existence, focusing on performance,
+sound synthesis, computer games, musical notation, braille notation,
+folk songs, musical bibliography, and many others
+\cite{selfridge-field97:beyond}.
 
 Interestingly, the choice of a proper codification influences the
 results obtainable from the later analysis. For example, chords that
-sound the same but have different tonal function and are spelled
-differently may not be detected in a representation that does not take
-in account enharmonic spelling. For instance, in
-\cite{pardo02:algorithms} a German augmented six chord is mistakenly
-identified as a dominant seventh chord.
+sound the same but have different tonal function and spelling might
+not be told apart using an algorithm that does not consider enharmonic
+difference. For instance, in \cite{pardo02:algorithms} a German
+augmented sixth chord is mistakenly identified as a dominant seventh
+chord.
 
 %%% tipos de representação que são usados
+
+\nota{reescrever enfatizando as codificações}
 
 In \cite{prather96:harmonic} notes are represented as pitch classes
 only, ignoring enarmonic information. Meter, also, is widely
@@ -157,19 +157,23 @@ simplify the research in harmonic analysis.
 
 %%% representação específicas para acordes (tipos de saida da analise)
 
-Probably the simplest harmonic output is the key of a musical
-passage. Most recent research on estimation of musical keys is
-concerned with the analysis of audio signals
-\cite{izmirli:audio,noland.sandler:key,peeters:chroma-based}. Some
-research, also, focuses on translating the results to another medium.
-For instance, \cite{wang97:generating} generates a 6-line guitar
-score, a tablature marked with the chords for a given passage, from
-the analysis of a MIDI input. The system described in
-\cite{pachet00:computer} outputs not only the chord names (e.g. Db7)
-but some functions used in jazz harmony like ``modal borrowing'' and
-``tritone substitution''. Results from \cite{barthelemy01:figured} are
-in the form of figured bass, like $7+$, $^{+6}_{\ \ \,3}$, and
-$^6_5$. Most systems, as those from
+\nota{colocar referencias nos tipos de saida}
+
+The systems described in literature usually return information such as
+chord roots, chord types, keys, or symbols in roman numerals
+indicating tonal function.
+
+\nota{re-escreve}
+
+% eu seja, sua ideia é colocar no 1o paragrafo tudo que for comum e
+% nao precisar de muita explicação e no 2o o que for mais especifico e
+% diferente?
+
+For instance, the system described in \cite{pachet00:computer} outputs
+not only the chord names (e.g. Db7) but some functions used in jazz
+harmony like ``modal borrowing'' and ``tritone substitution''. Results
+from \cite{barthelemy01:figured} are in the form of figured bass, like
+$7+$, $^{+6}_{\ \ \,3}$, and $^6_5$. Most systems, as those from
 \cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
 chord notation like A$\flat$7, D$\flat$min, for A flat with minor
 seventh and D flat minor, respectively.
@@ -181,21 +185,14 @@ information such as ``tonic of G'', ``substitute for x+2''. But no
 system seems to generate a functional analysis like ii$^6_6$, V7, and
 so on.
 
-\cite{harte.sandler.ea:symbolic} suggests an unambiguous notation for
-chords in a format like \texttt{c:(3,5)}, \texttt{d\#:(b3,5,b7,9)/5}.
-Since this notation is too verbose, the author himself proposes a
-shorthand notation like \texttt{d\#:min9/5}. \cite{kroger06:processo}
-proposed a notation for chords using a list in the format
-\texttt{(<name> <type> <intervals> <inversion>)}, for exemplo, a G7/B
-could be notated as \texttt{(g major 7 1)}. This rationale also enables
-a more verbose notation like 
-
-\begin{verbatim}
-(:fundamental g
- :added-note 7
- :inversion first
- :type diminished)
-\end{verbatim}
+Since the usual notation for chords is ambiguous, some alternatives
+were proposed. Harte et al. notation \cite{harte.sandler.ea:symbolic}
+has tuples of chord intervals, like \texttt{c:(3,5)} or
+\texttt{d\#:(b3,5,b7,9)/5}. Since this notation is too verbose Harte
+et al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
+\cite{kroger06:processo} use a list with chord information in the
+format \texttt{(<name> <type> <intervals> <inversion>)}. For instance,
+a G7/B chord could be notated as \texttt{(g major 7 1)}.
 
 \section{Proposed Solutions}
 \label{sec:proposed-solutions}
