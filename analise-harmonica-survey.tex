@@ -310,12 +310,12 @@ notes, and suspension and ritardo of resolutions.
 The NUSO system \cite{mouton95:numeric} uses harmonic context to
 define tonality through rules considering non-chord notes in
 accompanied melody, Alberti bass, and baroque style. The MusES system
-<<cita>> uses relations between adjacent chords to define the best
-possible tonality for a chord. Finally, the automated harmonic
-analysis method developed by \cite{barthelemy01:figured} has a simple
-algorithm to process non-chord notes, often producing errors. It
-assumes that every non-chord note is followed by a conjunct movement,
-which is not always true.
+\cite{mouton95:numeric} uses relations between adjacent chords to
+define the best possible tonality for a chord. Finally, the automated
+harmonic analysis method developed by \cite{barthelemy01:figured} has
+a simple algorithm to process non-chord notes, often producing errors.
+It assumes that every non-chord note is followed by a conjunct
+movement, which is not always true.
 
 Some projects don't take harmonic context into account. Harte et al.
 \cite{harte.sandler.ea:symbolic} ignores key context in their model
@@ -325,14 +325,21 @@ purposefully making minimal use of harmonic context.
 
 \nota{expandir sobre os problemas}
 
-\cite{harte.sandler.ea:symbolic} says that in classical harmony
-analysis the ``chords are notated in the context of a given key'', but
+Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
+related to harmonic context. Ornamental notes and incomplete harmony,
+ambiguities, non-regularity of harmony, and non-universality of
+harmony rules.
+Pardo et al. \cite{pardo99:automated} classify error frequencies.
+Most of them are related to harmonic context, specifically non-chord
+notes and cadence recognition. They agree that a deeper understanding
+of voice leading and knowledge about neighbour chords would help
+adjusting chord-label weights.
 
-The error frequencies are classified and most of them are
-related to harmonic context, specifically non-chord notes and cadence
-recognition. The authors agree that a deeper understanding of voice
-leading and knowledge about neighbour chords would help adjusting
-chord-label weights.
+%% mantenho?
+Harte et al. \cite{harte.sandler.ea:symbolic} say that in classical
+harmony analysis the ``chords are notated in the context of a given
+key'', but their system don't use context.
+
 
 \section{Tests and benchmarks}
 
