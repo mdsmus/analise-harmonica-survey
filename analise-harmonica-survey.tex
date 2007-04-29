@@ -179,6 +179,8 @@ chord notation like A$\flat$7, D$\flat$min, for A flat with minor
 seventh and D flat minor, respectively.
 
 \nota{checar se algum sistema mostra numerais romanos como saida}
+\nota{\cite{raphael03:harmonic} usa numerais romanos, ele usa ``a
+  (roman numeral, tonic, mode) triple''}
 
 \cite{Ulrich77IJ} performs a functional analysis of chords, indicating
 information such as ``tonic of G'', ``substitute for x+2''. But no
@@ -230,26 +232,25 @@ part of a few keys.
 \subsection{Statistical Approaches}
 \label{sec:stat-appr}
 
-\nota{explicar melhor a parte do training data}
-
-% On the other hand, they rely solely on their training data to perform
-% analysis, and so are quick to misbehave when facing a score in a
-% different style.
 
 While not specifically addressing the problem of musical context,
 statistical models differ from their rule-based counterparts by
-considering this information implicitly. On the other hand, they are
-very sensitive to the training data, tending to misbehave on slightly
-different scores.
-
-\nota{revisar e avaliar o que tem sido usado}
+considering this information implicitly. This is accomplished by
+inference of implicit information from already harmonized scores
+during training. Too much sensitivity to the training data might is
+problematic, since it may lead the algorithm to mistakenly analyze a
+piece. For instance, if after being trained on Bach chorales the
+system is exposed to an arpeggiated melody it might classify each note
+of the arpeggio as a different chord
+\cite{tsui02:_harmon_analy_using_neural_networ}.
 
 Back-propagating neural networks are used by T'sui
-\cite{tsui02:_harmon_analy_using_neural_networ} and Buzzanca
-\cite{buzzanca02:supervised} with good results. A hidden markov model
-is employed by Raphael \cite{raphael03:harmonic} and Noland Sandler
-\cite{noland.sandler:key}. A bayesian model is used by Temperley
-\cite{temperley04:bayesian} for key recognition.
+\cite{tsui02:_harmon_analy_using_neural_networ} with good results,
+harmonizing bach chorales with over 90\% efficiency. A hidden markov
+model is employed by Raphael \cite{raphael03:harmonic} and Noland and
+Sandler \cite{noland.sandler:key}, with over 91\% accuracy for key
+estimation. A bayesian model is used by Temperley
+\cite{temperley04:bayesian} for key recognition with 86.5\% accuracy.
 
 \section{Segmentation}
 % passos
@@ -271,27 +272,13 @@ space of possible partitions one must consider the harmonic context of
 each segment, which is difficult. Most systems make little use of
 proper context, according to Barthèlemy \cite{barthelemy01:figured}.
 
-\nota{explicar melhor}
-
 Prather \cite{prather96:harmonic} approaches the problem in a
-simplified fashion, with chords being assumed to change only in the
-beats of a given measure, and tonal information spread between two
-measures being ignored.
-
-\nota{explicar melhor} 
-
-\cite{barthelemy01:figured} uses melodic and harmonic information to
-construct the segmentation bottom-up, i.e. merging two adjacent
-segments if and only every sound of the first belongs in the second
-and vice versa or if the union (with or without ornamental notes) of
-both segments can be exactly mapped onto a chord. The process starts
-with minimal segments and ends only when no more merges can be
-performed.
-
+simplified fashion, segmenting only inside measures.  Barthèlemy
+\cite{barthelemy01:figured} segments bottom-up, starting from minimal
+segments and merging them in a larger segment if possible.
 \cite{pardo02:algorithms} and \cite{pardo99:automated} perform
-segmentation backwards, by comparing all possible (or likely, in
-another version of the algorithm) segmentations, choosing the ones
-that better match chord templates.
+segmentation backwards, by comparing all possible segmentations,
+choosing the ones that better match chord templates.
 
 %%kroger: completar
 Segmentation is also a problem in research dealing with audio formats.
