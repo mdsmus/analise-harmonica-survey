@@ -126,8 +126,6 @@ difference. For instance, in \cite{pardo02:algorithms} a German
 augmented sixth chord is mistakenly identified as a dominant seventh
 chord.
 
-%%% tipos de representação que são usados
-
 \nota{reescrever enfatizando as codificações}
 
 In \cite{prather96:harmonic} notes are represented as pitch classes
@@ -160,38 +158,25 @@ simplify the research in harmonic analysis.
 \nota{colocar referencias nos tipos de saida}
 
 The systems described in literature usually return information such as
-chord roots, chord types, keys, or symbols in roman numerals
-indicating tonal function.
-
-\nota{re-escreve}
-
-% eu seja, sua ideia é colocar no 1o paragrafo tudo que for comum e
-% nao precisar de muita explicação e no 2o o que for mais especifico e
-% diferente?
-
-For instance, the system described in \cite{pachet00:computer} outputs
-not only the chord names (e.g. Db7) but some functions used in jazz
-harmony like ``modal borrowing'' and ``tritone substitution''. Results
-from \cite{barthelemy01:figured} are in the form of figured bass, like
-$7+$, $^{+6}_{\ \ \,3}$, and $^6_5$. Most systems, as those from
+chord roots, keys, chord types
+\cite{temperley99:modeling,pardo02:algorithms}, figured bass
+\cite{barthelemy01:figured}, or the indication of the tonal function
+\cite{pachet00:computer,Ulrich77IJ}. Most systems, as those from
 \cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
-chord notation like A$\flat$7, D$\flat$min, for A flat with minor
-seventh and D flat minor, respectively.
+a chord notation like A$\flat$7. The system described in
+\cite{pachet00:computer} outputs not only the chord names but some
+functions used in jazz harmony like ``modal borrowing'' and ``tritone
+substitution''. The system in \cite{Ulrich77IJ} also performs a
+functional analysis of chords, indicating information such as ``tonic
+of G'', ``substitute for x+2''.
 
-\nota{checar se algum sistema mostra numerais romanos como saida}
-\nota{\cite{raphael03:harmonic} usa numerais romanos, ele usa ``a
-  (roman numeral, tonic, mode) triple''}
-
-\cite{Ulrich77IJ} performs a functional analysis of chords, indicating
-information such as ``tonic of G'', ``substitute for x+2''. But no
-system seems to generate a functional analysis like ii$^6_6$, V7, and
-so on.
-
-Since the usual notation for chords is ambiguous, some alternatives
+Since the usual notation for chords is ambiguous some alternatives
 were proposed. Harte et al. notation \cite{harte.sandler.ea:symbolic}
-has tuples of chord intervals, like \texttt{c:(3,5)} or
-\texttt{d\#:(b3,5,b7,9)/5}. Since this notation is too verbose Harte
-et al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
+has tuples of chord intervals, like \texttt{c:(3,5)} for C major or
+\texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$ minor with minor seventh,
+ninth, and the bass on A$\sharp$. This chord would be usually notated
+as D$\sharp$m$^{9}_{7}$/A$\sharp$. Since this notation is too verbose Harte et
+al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
 \cite{kroger06:processo} use a list with chord information in the
 format \texttt{(<name> <type> <intervals> <inversion>)}. For instance,
 a G7/B chord could be notated as \texttt{(g major 7 1)}.
