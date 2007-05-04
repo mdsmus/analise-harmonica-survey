@@ -90,6 +90,7 @@ Barthèlemy \cite{barthelemy01:figured} have a general but informative
 survey on the topic.
 
 \nota{falar como serão feitas as coisas nesse artigo}
+\nota{falar que não vai falar de áudio}
 
 This paper will begin by pointing out the main problems and existent
 solutions in the field, and then proceed in discussing their
@@ -108,7 +109,44 @@ A few additional sub-problems might arise from the input format, such as
 determining meter or a correct pitch spelling depending on its
 suitability.
 
-\section{Music representation and ...}
+\section{Harmonic Context}
+% marcos
+
+In harmony some structures like non-chord notes are better understood
+in a particular context. For instance, a passing note is a non-chord
+note that only can be identified if is approached and left by step in
+the same direction. Some algorithms ignore or make minimal use of the
+harmonic context. Proper use of harmonic context helps to solve
+problems such as ambiguities in chord analysis, identification of
+non-chord notes, suspensions, and retardations.
+
+The NUSO system \cite{mouton95:numeric} uses harmonic context to
+define tonality through rules considering non-chord notes in
+accompanied melody, Alberti bass, and baroque style. The MusES system
+\cite{mouton95:numeric} uses relations between adjacent chords to
+define the best possible tonality for a chord. Finally, the automated
+harmonic analysis method developed by \cite{barthelemy01:figured} has
+a simple algorithm to process non-chord notes, often producing errors.
+It assumes that every non-chord note is followed by a conjunct
+movement which is not always true.
+
+Some projects don't take harmonic context into account. Harte et al.
+\cite{harte.sandler.ea:symbolic} ignores key context in their model
+for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
+developed a set of algorithms for automated chordal analysis making
+minimal use of harmonic context.
+
+Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
+related to harmonic context. Ornamental notes and incomplete harmony,
+ambiguities, non-regularity of harmony, and non-universality of
+harmony rules.
+Pardo et al. \cite{pardo99:automated} classify error frequencies.
+Most of them are related to harmonic context, specifically non-chord
+notes and cadence recognition. They agree that a deeper understanding
+of voice leading and knowledge about neighbour chords would help
+adjusting chord-label weights.
+
+\section{Music representation in harmonic analysis}
 \label{sec:representation}
 
 A musical piece must be represented in a form suitable to automated
@@ -144,42 +182,38 @@ system, representing pitches only as pitch classes, ignoring meter and
 all forms of context information, with the intention of providing a
 basis for sutdy of better algorithms.
 \cite{tsui02:_harmon_analy_using_neural_networ} and other systems
-differentiate in importance notes having different meter strength.
-
-A few numeric representations such as \cite{hewlett92:base40} and
+differentiate in importance notes having different meter strength. A
+few numeric representations such as \cite{hewlett92:base40} and
 \cite{oliveira01:codificacao} where developed to keep the
 characteristics of tonal music, being the last one is particularly
 elegant. It is based on a modulo 96 where the common pitch class
 notation uses modulo 12. We believe that the use of this system can
 simplify the research in harmonic analysis.
 
-%%% representação específicas para acordes (tipos de saida da analise)
-
-\nota{colocar referencias nos tipos de saida}
-
 The systems described in literature usually return information such as
-chord roots, keys, chord types
+keys \cite{chai.vercoe:detection,noland.sandler:key}, chords
 \cite{temperley99:modeling,pardo02:algorithms}, figured bass
-\cite{barthelemy01:figured}, or the indication of the tonal function
+\cite{barthelemy01:figured}, or tonal function
 \cite{pachet00:computer,Ulrich77IJ}. Most systems, as those from
 \cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
-a chord notation like A$\flat$7. The system described in
+notation like A$\flat$7 for chords. The system described in
 \cite{pachet00:computer} outputs not only the chord names but some
 functions used in jazz harmony like ``modal borrowing'' and ``tritone
-substitution''. The system in \cite{Ulrich77IJ} also performs a
-functional analysis of chords, indicating information such as ``tonic
-of G'', ``substitute for x+2''.
+substitution''. Ulrich \cite{Ulrich77IJ} also performs a functional
+analysis of chords, indicating information such as ``tonic of G'' or
+``substitute for x+2''.
 
 Since the usual notation for chords is ambiguous some alternatives
 were proposed. Harte et al. notation \cite{harte.sandler.ea:symbolic}
 has tuples of chord intervals, like \texttt{c:(3,5)} for C major or
-\texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$ minor with minor seventh,
-ninth, and the bass on A$\sharp$. This chord would be usually notated
-as D$\sharp$m$^{9}_{7}$/A$\sharp$. Since this notation is too verbose Harte et
+\texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$m$^{7}_{9}$/A$\sharp$. Since this notation is too verbose Harte et
 al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
 \cite{kroger06:processo} use a list with chord information in the
-format \texttt{(<name> <type> <intervals> <inversion>)}. For instance,
-a G7/B chord could be notated as \texttt{(g major 7 1)}.
+format:
+\begin{verbatim}
+(<name> <type> <intervals> <inversion>)
+\end{verbatim}
+For instance, G7/B would be \texttt{(g major 7 1)}.
 
 \section{Proposed Solutions}
 \label{sec:proposed-solutions}
@@ -222,20 +256,20 @@ While not specifically addressing the problem of musical context,
 statistical models differ from their rule-based counterparts by
 considering this information implicitly. This is accomplished by
 inference of implicit information from already harmonized scores
-during training. Too much sensitivity to the training data might is
+during training. Too much sensitivity to the training data might be
 problematic, since it may lead the algorithm to mistakenly analyze a
-piece. For instance, if after being trained on Bach chorales the
+piece. For instance, after being trained on Bach chorales if the
 system is exposed to an arpeggiated melody it might classify each note
 of the arpeggio as a different chord
 \cite{tsui02:_harmon_analy_using_neural_networ}.
 
 Back-propagating neural networks are used by T'sui
 \cite{tsui02:_harmon_analy_using_neural_networ} with good results,
-harmonizing bach chorales with over 90\% efficiency. A hidden markov
+analysing bach chorales with over 90\% efficiency. A hidden markov
 model is employed by Raphael \cite{raphael03:harmonic} and Noland and
 Sandler \cite{noland.sandler:key}, with over 91\% accuracy for key
 estimation. A bayesian model is used by Temperley
-\cite{temperley04:bayesian} for key recognition with 86.5\% accuracy.
+\cite{temperley04:bayesian} for key estimation with 86.5\% accuracy.
 
 \section{Segmentation}
 % passos
@@ -258,73 +292,13 @@ each segment, which is difficult. Most systems make little use of
 proper context, according to Barthèlemy \cite{barthelemy01:figured}.
 
 Prather \cite{prather96:harmonic} approaches the problem in a
-simplified fashion, segmenting only inside measures.  Barthèlemy
+simplified fashion, segmenting only inside measures. Therefore a chord
+is split if it spans more than a bar. Barthèlemy
 \cite{barthelemy01:figured} segments bottom-up, starting from minimal
-segments and merging them in a larger segment if possible.
-\cite{pardo02:algorithms} and \cite{pardo99:automated} perform
-segmentation backwards, by comparing all possible segmentations,
-choosing the ones that better match chord templates.
-
-%%kroger: completar
-Segmentation is also a problem in research dealing with audio formats.
-\cite{abdallah.noland.ea:theory} divides the segmentation by timber,
-harmony, and rhythm and pitch. ``they are not well adapted for use in
-structure analysis from audio'' \cite{maddage04:content} combines
-audio and symbolic representation for music structure analysis,
-including chord detection.
-
-We believe the segmentation problem for harmonic analysis of tonal
-music is largely unsolved.
-
-\section{Harmonic Context}
-% marcos
-
-As we saw, some algorithms ignore or make minimal use of the harmonic
-context. It can be understood as an enviroment where each element ---
-such as notes, chords and phrases --- has a kind and a level of
-relation to the others. In harmony some structures like non-chord
-notes are better understood if seen in a particular context. For
-instance, a passing note is a non-chord note that only can be
-identified if is approached and left by step in the same direction.
-
-Thus the harmonic context is important in automated harmonic analysis
-systems because proper use of harmonic context helps solving problems
-such as ambiguities in chord analysis, identification of non-chord
-notes, and suspension and ritardo of resolutions.
-
-The NUSO system \cite{mouton95:numeric} uses harmonic context to
-define tonality through rules considering non-chord notes in
-accompanied melody, Alberti bass, and baroque style. The MusES system
-\cite{mouton95:numeric} uses relations between adjacent chords to
-define the best possible tonality for a chord. Finally, the automated
-harmonic analysis method developed by \cite{barthelemy01:figured} has
-a simple algorithm to process non-chord notes, often producing errors.
-It assumes that every non-chord note is followed by a conjunct
-movement, which is not always true.
-
-Some projects don't take harmonic context into account. Harte et al.
-\cite{harte.sandler.ea:symbolic} ignores key context in their model
-for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
-developed a set of algorithms for automated chordal analysis,
-purposefully making minimal use of harmonic context.
-
-\nota{expandir sobre os problemas}
-
-Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
-related to harmonic context. Ornamental notes and incomplete harmony,
-ambiguities, non-regularity of harmony, and non-universality of
-harmony rules.
-Pardo et al. \cite{pardo99:automated} classify error frequencies.
-Most of them are related to harmonic context, specifically non-chord
-notes and cadence recognition. They agree that a deeper understanding
-of voice leading and knowledge about neighbour chords would help
-adjusting chord-label weights.
-
-%% mantenho?
-Harte et al. \cite{harte.sandler.ea:symbolic} say that in classical
-harmony analysis the ``chords are notated in the context of a given
-key'', but their system don't use context.
-
+segments and merging them in a larger segment if possible. Pardo
+\cite{pardo99:automated,pardo02:algorithms} performs segmentation
+backwards, by comparing all possible segmentations and choosing the
+ones that better match chord templates.
 
 \section{Tests and benchmarks}
 
