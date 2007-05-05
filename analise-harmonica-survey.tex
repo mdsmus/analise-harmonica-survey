@@ -13,7 +13,7 @@
 
 \hyphenation{nea-po-li-tan}
 
-\title{A Survey of Automated Harmony Analysis Techniques}
+\title{A Survey of Automated Harmonic Analysis Techniques}
  
 \oneauthor
   {Pedro Kröger, Alexandre Passos, Marcos Sampaio}
@@ -29,15 +29,20 @@
 
 \begin{abstract}
 Since Winograd in 1968, the problem of using the computer to do
-automated harmonic analysis has been approached, from several different
-directions, most with reasonable success. On the other hand, little
-has been done towards stabilishing standard benchmarks, and
-identifying and solving the remaining issues of harmonic-significant
-segmentation of musical pieces and properly using contextual
-information.
+automated harmonic analysis has been approached, from several
+different directions, with limited success. Expert systems and
+statistical approaches were tried.
+
+Little has been done, however, towards stabilishing standard
+benchmarks. The problem of harmonic-significant segmentation is
+unsolved. A more systematic approach to its solution might resolve
+ambiguities in existent methods.  Most algorithms also ignore relevant
+contextual clues. A proper formalisation of musical theory would
+facilitate the construction of effective analysis systems.
 
 Here we present a comprehensive survey of the existing literature on
-the subject, as a means to enable more focused research on the area.
+the subject, as a means to facilitate more focused research on the
+area.
 \end{abstract}
 
 \section{Introduction}
@@ -87,14 +92,20 @@ harmonic analysis. To our knowledge, there is no comprehensive survey
 on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
 of the state of the art until 2001. Mouton \cite{mouton95:numeric} and
 Barthèlemy \cite{barthelemy01:figured} have a general but informative
-survey on the topic.
+survey on the topic. We chose to ignore audio processing techniques
+and focus solely on extraction of harmony from a score.
 
 \nota{falar como serão feitas as coisas nesse artigo}
 \nota{falar que não vai falar de áudio}
 
 This paper will begin by pointing out the main problems and existent
 solutions in the field, and then proceed in discussing their
-effectiveness.
+effectiveness. We start with an overview of the problem of harmonic
+analysis, then a clarification of what we mean by harmonic
+context. The problem of representing music in a form amenable to
+analysis is observed next. We follow with a discussion of the existent
+algorithms for chord and key detection, techniques for segmentation
+and existent benchmarks.
 
 \section{The problem of automated harmonic analysis}
 \label{sec:problem}
@@ -320,35 +331,26 @@ compared.
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
 
-We believe in the importance of having standard tests to be performed
-in a large corpus of music.
-
-We believe that a more systematic approach to music segmentation might
-wield considerably better results,
-
-
 Although many aspects of music can be understood using mathematical
-models such as the set theory (of post-tonal theory), it is not clear
-in the literature if a mathematical approach could help in the problem
-of harmonic analysis. Taneyev \cite{taneyev62:counterpoint} has used
-mathematics extensively in his counterpoint treatise with a good
-degree of success. As far as we know, there are not meaningful works
-in the literature of automatic harmonic analysis where a mathematical
-model such as the set theory is used extensively.
+models such as set theory (of post-tonal theory), it is not clear in
+literature if a mathematical approach would ease harmonic
+analysis. Taneyev \cite{taneyev62:counterpoint} has used mathematics
+extensively in his counterpoint treatise with a good degree of
+success. As far as we know, there are not meaningful works in the
+literature of automatic harmonic analysis where a mathematical model
+such as set theory is used extensively.
 
-\nota{checar para ver se é 100\% verdade}
+The problems of harmonic segmentation and harmonic analysis are not
+fully solved. A more systematic approach to segmentation might yield
+considerably better results. Musical theory lacks precise formalisms,
+so developing effective algorithms based on it is non-trivial. The
+lack of standard benchmarks contributes to this problem and makes the
+comparison of existent methods difficult.
 
-\cite{pardo02:algorithms} uses tuples as templates, with a numerical
-representation of notes. All posible transpositions are defined as
-templates, when could be much easier to calculate if two pitch class
-sets are the same using the prime form. Maybe things like normal and
-prime form, interval vector, index vector, and operations with super
-and sub-sets can help identifying harmonic elements from the non-harmonic.
 
 \nota{ver \cite{conklin95:multiple} em detalhe}
-
 \nota{ver se cita \cite{conklin02:representation}}
-
+\nota{<passos> isso é realmente relevante para a conclusão?}
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
 \end{document}
