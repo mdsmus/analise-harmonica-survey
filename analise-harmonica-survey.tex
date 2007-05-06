@@ -175,31 +175,25 @@ difference. For instance, in \cite{pardo02:algorithms} a German
 augmented sixth chord is mistakenly identified as a dominant seventh
 chord.
 
-\nota{reescrever enfatizando as codificações}
+Most systems
+\cite{prather96:harmonic,pardo02:algorithms,pardo99:automated,temperley99:modeling}
+represent notes as pitch classes, ignoring enarmonic information. This
+is somewhat emphasized by the fact that MIDI or MIDI-like input is
+used \cite{pardo99:automated,wang97:generating,raphael03:harmonic}.
+Pardo \cite{pardo02:algorithms,pardo99:automated} not only uses only
+pitch classes, but ignores meter and all forms of context information,
+with the intention of providing a basis for study of better
+algorithms.
 
-In \cite{prather96:harmonic} notes are represented as pitch classes
-only, ignoring enarmonic information. Meter, also, is widely
-simplified, being reduced to a percentage of time a given pitch class
-is sounding in a given measure. In \cite{buzzanca02:supervised}, meter
-is represented as the logarithm of beat length, ignoring most complex
-beats. \cite{barthelemy01:figured} claims to distinguish enharmonic
-notes, even though the exact representation used is not discussed.
-MIDI input is used in \cite{wang97:generating} and
-\cite{raphael03:harmonic}. \cite{pachet96representing} describes a
-codification for polyphonic tonal music, but makes no concrete claims
-towards its applicability in harmonic analysis.
-\cite{pardo02:algorithms}, \cite{pardo99:automated} uses a simplistic
-system, representing pitches only as pitch classes, ignoring meter and
-all forms of context information, with the intention of providing a
-basis for sutdy of better algorithms.
-\cite{tsui02:_harmon_analy_using_neural_networ} and other systems
-differentiate in importance notes having different meter strength. A
-few numeric representations such as \cite{hewlett92:base40} and
-\cite{oliveira01:codificacao} where developed to keep the
-characteristics of tonal music, being the last one is particularly
-elegant. It is based on a modulo 96 where the common pitch class
-notation uses modulo 12. We believe that the use of this system can
-simplify the research in harmonic analysis.
+A few numeric representations for pitch
+\cite{hewlett92:base40,oliveira01:codificacao} where developed to keep
+the characteristics of tonal music. The one developed by Oliveira
+\cite{oliveira01:codificacao} is particularly elegant. This
+representation is not only capable of differentiating enharmonic notes
+(for instance, D$\sharp$ is represented by 7 and D$\flat$ by 91) but
+allows operations like calculation of tonal intervals, transposition,
+inversion, and so on. It is modulo 96 based and can be easily
+converted to the more common module 12 based representation.
 
 The systems described in literature usually return information such as
 keys \cite{chai.vercoe:detection,noland.sandler:key}, chords
@@ -357,34 +351,8 @@ comparison of existent methods difficult.
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
 
-\section{Terminology}
-% todos
+\nota{para passos: não consigo ver aonde}
+Barthèlemy \cite{barthelemy01:figured} claims to distinguish
+enharmonic notes, even though the exact representation used is not
+discussed.
 
-% uma lista de possíveis termos a ser definidos, depois reduzir pra só
-% os relevantes e definí-los
-meter
-pitch
-segmentation
-tonality
-harmony
-hidden markov model
-melody
-neural network
-expert system
-pattern matching
-chord
-greedy algorithm
-island growing
-ornamental note
-music/harmonic context
-Forma prima.
-  Uma maneira de representar a classe de
-  conjunto de uma maneira compacta e não-ambígua.
-Vetor intervalar.
-Uma representação compactada contendo
-  todos os intervalos em um conjunto.
-Número de classificação de Allen Forte.
-Classificação
-  usando dois dígitos proposta por Allen Forte para todas as classes
-  de conjuntos. O primeiro dígito indica a quantidade de notas no
-  conjunto e o segundo sua posição na lista de classes de conjuntos.
