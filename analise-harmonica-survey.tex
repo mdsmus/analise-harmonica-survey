@@ -40,7 +40,7 @@ digital libraries
 \cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, detection of
 musical patterns
 \cite{lartillot-nakamura03:discovering,dannenberg02:pattern,lartillot02:integrating}
-that may help, among other things, in identifying musical styles
+that may help, among other things, to identify musical styles
 \cite{dixon03:classification,pampalk03:exploring,rauber02:using}, and
 in problems related to musical representation
 \cite{lee02:representing,good00:representing,rol00:xml4mir}.
@@ -66,7 +66,7 @@ analysis of musical styles for automated composition
 
 Functional harmonic analysis is a specific kind of musical analysis,
 in which a musical passage is represented as a sequence of chords. By
-definition, automated harmony analysis must be done completely by
+definition, automated harmonic analysis must be done completely by
 computer programs without human intervention. Typically the system
 accepts musical data in a format such as MIDI or scores in symbolic or
 numeric format, and returns information such as chord roots, chord
@@ -77,8 +77,7 @@ harmonic analysis. To our knowledge, there is no comprehensive survey
 on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
 of the state of the art until 2001. Mouton \cite{mouton95:numeric} and
 Barthèlemy \cite{barthelemy01:figured} have a general but informative
-survey on the topic. We chose to ignore audio processing techniques
-and focus solely on extraction of harmony from a score.
+survey on the topic. 
 
 This paper focus on the main problems and solutions of automated
 harmonic analysis with a discussion of their effectiveness. Harmonic
@@ -98,13 +97,12 @@ determining meter or a correct pitch spelling depending on its
 suitability.
 
 \section{Harmonic Context}
-% marcos
+\label{sec:harmonic-context}
 
 In harmony some structures like non-chord notes are better understood
 in a particular context. For instance, a passing note is a non-chord
 note that only can be identified if is approached and left by step in
-the same direction. Some algorithms ignore or make minimal use of the
-harmonic context. Proper use of harmonic context helps to solve
+the same direction. Proper use of harmonic context helps to solve
 problems such as ambiguities in chord analysis, identification of
 non-chord notes, suspensions, and retardations.
 
@@ -127,12 +125,11 @@ minimal use of harmonic context.
 Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
 related to harmonic context. Ornamental notes and incomplete harmony,
 ambiguities, non-regularity of harmony, and non-universality of
-harmony rules.
-Pardo et al. \cite{pardo99:automated} classify error frequencies.
-Most of them are related to harmonic context, specifically non-chord
-notes and cadence recognition. They agree that a deeper understanding
-of voice leading and knowledge about neighbour chords would help
-adjusting chord-label weights.
+harmony rules. Pardo et al. \cite{pardo99:automated} classify error
+frequencies, most of them related to harmonic context,
+specifically non-chord notes and cadence recognition. They agree that
+a deeper understanding of voice leading and knowledge about neighbour
+chords would help adjusting chord-label weights.
 
 \section{Music representation in harmonic analysis}
 \label{sec:representation}
@@ -145,9 +142,9 @@ folk songs, musical bibliography, and many others
 \cite{selfridge-field97:beyond}.
 
 Interestingly, the choice of a proper codification influences the
-results obtainable from the later analysis. For example, chords that
-sound the same but have different tonal function and spelling might
-not be told apart using an algorithm that does not consider enharmonic
+results obtainable from analysis. For example, chords that sound
+the same but have different tonal function and spelling might not be
+told apart using an algorithm that does not consider enharmonic
 difference. For instance, in \cite{pardo02:algorithms} a German
 augmented sixth chord is mistakenly identified as a dominant seventh
 chord.
@@ -156,11 +153,11 @@ Most systems
 \cite{prather96:harmonic,pardo02:algorithms,pardo99:automated,temperley99:modeling}
 represent notes as pitch classes, ignoring enarmonic information. This
 is somewhat emphasized by the fact that MIDI or MIDI-like input is
-used \cite{pardo99:automated,wang97:generating,raphael03:harmonic}.
-Pardo \cite{pardo02:algorithms,pardo99:automated} not only uses only
-pitch classes, but ignores meter and all forms of context information,
-with the intention of providing a basis for study of better
-algorithms.
+used
+\cite{pardo99:automated,pardo02:algorithms,wang97:generating,raphael03:harmonic}.
+Pardo \cite{pardo02:algorithms,pardo99:automated} also ignores meter
+and all forms of context information with the intention to provide a
+basis for study of better algorithms.
 
 A few numeric representations for pitch
 \cite{hewlett92:base40,oliveira01:codificacao} where developed to keep
@@ -261,9 +258,9 @@ crucial problem in the area of automated harmonic analysis, although
 underrepresented in literature
 \cite{pardo02:algorithms,byrd02:problems}.
 
-The task of designing an effective algorithmical solution for the
+The task of designing an effective algorithmic solution for the
 problem of segmentation is difficult because the segmentation problem
-isn't clearly formalized in the music theory literature. 
+isn't clearly formalized in the music theory literature.
 
 This problem is of high computational complexity, since the number of
 possible partition points in a given piece is proportional to the
@@ -317,6 +314,8 @@ considerably better results. Musical theory lacks precise formalisms,
 so developing effective algorithms based on it is non-trivial. The
 lack of standard benchmarks contributes to this problem and makes the
 comparison of existent methods difficult.
+
+\nota{this paper presented ....}
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
