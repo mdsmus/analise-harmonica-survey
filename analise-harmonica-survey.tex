@@ -19,16 +19,17 @@
 \begin{abstract}
   The problem of using the computer for automated harmonic analysis
   has been approached from several different directions with varied
-  degree of success. Expert systems and statistical approaches were
-  tried. However, little has been done towards stabilishing standard
-  benchmarks. The problem of harmonic-significant segmentation is
-  unsolved. A more systematic approach to its solution might resolve
-  ambiguities in existent methods. Most algorithms also ignore
-  relevant contextual clues. A proper formalisation of musical theory
-  would facilitate the construction of effective analysis systems.
-  This paper presents a comprehensive survey of the existing
-  literature on the subject.
+  degree of success. Techniques from artificial intelligence, such as
+  machine learning and pattern recognition have been used. The
+  division of a given piece in harmonic significant segments is a
+  crucial problem in the area of automated harmonic analysis, although
+  it is still underrepresented in the literature. Also, most
+  algorithms ignore relevant contextual clues and little has been done
+  towards stabilishing standard benchmarks. This paper presents a
+  comprehensive survey of the existing literature on the subject.
 \end{abstract}
+
+
 
 \section{Introduction}
 \label{sec:introduction}
@@ -77,11 +78,10 @@ harmonic analysis. To our knowledge, there is no comprehensive survey
 on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
 of the state of the art until 2001. Mouton \cite{mouton95:numeric} and
 Barthèlemy \cite{barthelemy01:figured} have a general but informative
-survey on the topic. 
-
-This paper focus on the main problems and solutions of automated
-harmonic analysis with a discussion of their effectiveness. Harmonic
-analysis from audio sources will be not approached.
+survey on the topic. This paper focus on the main problems and
+solutions of automated harmonic analysis with a discussion of their
+effectiveness. Harmonic analysis from audio sources will be not
+approached.
 
 \section{The problem of automated harmonic analysis}
 \label{sec:problem}
@@ -197,11 +197,10 @@ chords would help adjusting chord-label weights.
 \label{sec:proposed-solutions}
 
 Many techniques from artificial intelligence, such as machine learning
-and pattern recognition, have been used in automated harmonic
-analysis. These may be subdivided in the expert-system approach,
-concerned with computerized representation of harmonic rules; and the
-statistical approach, that deduces said rules from probabilistic
-models.
+and pattern recognition have been used in automated harmonic analysis.
+These may be subdivided in the expert-system approach, concerned with
+computerized representation of harmonic rules; and the statistical
+approach, that deduces said rules from probabilistic models.
 
 \subsection{Expert System Approaches}
 \label{sec:expert-syst-appr}
@@ -229,7 +228,6 @@ part of a few keys.
 \subsection{Statistical Approaches}
 \label{sec:stat-appr}
 
-
 While not specifically addressing the problem of musical context,
 statistical models differ from their rule-based counterparts by
 considering this information implicitly. This is accomplished by
@@ -250,7 +248,7 @@ estimation. A bayesian model is used by Temperley
 \cite{temperley04:bayesian} for key estimation with 86.5\% accuracy.
 
 \section{Segmentation}
-% passos
+\label{sec:segmentation}
 
 The division of a given piece in harmonic significant segments is a
 crucial problem in the area of automated harmonic analysis, although
@@ -279,6 +277,7 @@ backwards, by comparing all possible segmentations and choosing the
 ones that better match chord templates.
 
 \section{Tests and benchmarks}
+\label{sec:tests-benchmarks}
 
 Pardo states that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
@@ -298,7 +297,9 @@ compared.
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
 
-\textbf{FIXME} this paper presented 
+This paper presented a comprehensive overview of the current status of
+automated harmonic analysis, focusing on the main problems with a
+discussion of their effectiveness.
 
 The problems of harmonic segmentation and harmonic analysis are not
 fully solved. A more systematic approach to segmentation might yield
