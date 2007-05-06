@@ -96,41 +96,6 @@ A few additional sub-problems might arise from the input format, such as
 determining meter or a correct pitch spelling depending on its
 suitability.
 
-\section{Harmonic Context}
-\label{sec:harmonic-context}
-
-In harmony some structures like non-chord notes are better understood
-in a particular context. For instance, a passing note is a non-chord
-note that only can be identified if is approached and left by step in
-the same direction. Proper use of harmonic context helps to solve
-problems such as ambiguities in chord analysis, identification of
-non-chord notes, suspensions, and retardations.
-
-The NUSO system \cite{mouton95:numeric} uses harmonic context to
-define tonality through rules considering non-chord notes in
-accompanied melody, Alberti bass, and baroque style. The MusES system
-\cite{mouton95:numeric} uses relations between adjacent chords to
-define the best possible tonality for a chord. Finally, the automated
-harmonic analysis method developed by \cite{barthelemy01:figured} has
-a simple algorithm to process non-chord notes, often producing errors.
-It assumes that every non-chord note is followed by a conjunct
-movement which is not always true.
-
-Some projects don't take harmonic context into account. Harte et al.
-\cite{harte.sandler.ea:symbolic} ignores key context in their model
-for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
-developed a set of algorithms for automated chordal analysis making
-minimal use of harmonic context.
-
-Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
-related to harmonic context. Ornamental notes and incomplete harmony,
-ambiguities, non-regularity of harmony, and non-universality of
-harmony rules. Pardo et al. \cite{pardo99:automated} classify error
-frequencies, most of them related to harmonic context,
-specifically non-chord notes and cadence recognition. They agree that
-a deeper understanding of voice leading and knowledge about neighbour
-chords would help adjusting chord-label weights.
-
 \section{Music representation in harmonic analysis}
 \label{sec:representation}
 
@@ -193,6 +158,42 @@ format:
 (<name> <type> <intervals> <inversion>)
 \end{verbatim}
 For instance, G7/B would be \texttt{(g major 7 1)}.
+
+\section{Harmonic Context}
+\label{sec:harmonic-context}
+
+In harmony some structures like non-chord notes are better understood
+in a particular context. For instance, a passing note is a non-chord
+note that only can be identified if is approached and left by step in
+the same direction, so it is only identifiable by considering
+contextual information. Proper use of harmonic context helps to solve
+problems such as ambiguities in chord analysis, identification of
+non-chord notes, suspensions, and retardations.
+
+The NUSO system \cite{mouton95:numeric} uses harmonic context to
+define tonality through rules considering non-chord notes in
+accompanied melody, Alberti bass, and baroque style. The MusES system
+\cite{mouton95:numeric} uses relations between adjacent chords to
+define the best possible tonality for a chord. Finally, the automated
+harmonic analysis method developed by \cite{barthelemy01:figured} has
+a simple algorithm to process non-chord notes, often producing errors.
+It assumes that every non-chord note is followed by a conjunct
+movement which is not always true.
+
+Some projects don't take harmonic context into account. Harte et al.
+\cite{harte.sandler.ea:symbolic} ignores key context in their model
+for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
+developed a set of algorithms for automated chordal analysis making
+minimal use of harmonic context.
+
+Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
+related to harmonic context. Ornamental notes and incomplete harmony,
+ambiguities, non-regularity of harmony, and non-universality of
+harmony rules. Pardo et al. \cite{pardo99:automated} classify error
+frequencies, most of them related to harmonic context,
+specifically non-chord notes and cadence recognition. They agree that
+a deeper understanding of voice leading and knowledge about neighbour
+chords would help adjusting chord-label weights.
 
 \section{Proposed Solutions}
 \label{sec:proposed-solutions}
@@ -315,7 +316,7 @@ so developing effective algorithms based on it is non-trivial. The
 lack of standard benchmarks contributes to this problem and makes the
 comparison of existent methods difficult.
 
-\nota{this paper presented ....}
+% FIXME this paper presented ....
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
