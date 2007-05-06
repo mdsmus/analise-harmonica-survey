@@ -153,10 +153,8 @@ has tuples of chord intervals, like \texttt{c:(3,5)} for C major or
 \texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$m$^{7}_{9}$/A$\sharp$. Since this notation is too verbose Harte et
 al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
 \cite{kroger06:processo} use a list with chord information in the
-format:
-\begin{verbatim}
-(<name> <type> <intervals> <inversion>)
-\end{verbatim}
+format:\\
+\texttt{(<name> <type> <intervals> <inversion>)}\\
 For instance, G7/B would be \texttt{(g major 7 1)}.
 
 \section{Harmonic Context}
@@ -256,7 +254,7 @@ estimation. A bayesian model is used by Temperley
 
 The division of a given piece in harmonic significant segments is a
 crucial problem in the area of automated harmonic analysis, although
-underrepresented in literature
+underrepresented in the literature
 \cite{pardo02:algorithms,byrd02:problems}.
 
 The task of designing an effective algorithmic solution for the
@@ -300,14 +298,7 @@ compared.
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
 
-Although many aspects of music can be understood using mathematical
-models such as set theory (or post-tonal theory), it is not clear in
-literature if a mathematical approach would help in harmonic analysis.
-Taneyev \cite{taneyev62:counterpoint} has used mathematics extensively
-in his counterpoint treatise with a good degree of success. As far as
-we know, there are not meaningful works in the literature of automatic
-harmonic analysis where a mathematical model such as set theory is
-used extensively.
+\textbf{FIXME} this paper presented 
 
 The problems of harmonic segmentation and harmonic analysis are not
 fully solved. A more systematic approach to segmentation might yield
@@ -316,7 +307,14 @@ so developing effective algorithms based on it is non-trivial. The
 lack of standard benchmarks contributes to this problem and makes the
 comparison of existent methods difficult.
 
-% FIXME this paper presented ....
+Although many aspects of music can be understood using mathematical
+models such as set theory (or post-tonal theory), it is not clear in
+literature if a mathematical approach would help in harmonic analysis.
+Taneyev \cite{taneyev62:counterpoint} has used mathematics extensively
+in his counterpoint treatise with a good degree of success. As far as
+we know, there are not meaningful works in the literature of automatic
+harmonic analysis where a mathematical model such as set theory is
+used extensively.
 
 \bibliographystyle{plain}
 \bibliography{analise-harmonica,bib-geral,bib-outras,analise-harmonica-nao-tenho}
