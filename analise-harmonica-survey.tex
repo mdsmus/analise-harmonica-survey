@@ -19,17 +19,15 @@
 \begin{abstract}
   The problem of using the computer for automated harmonic analysis
   has been approached from several different directions with varied
-  degree of success. Techniques from artificial intelligence, such as
+  degree of success. Techniques from artificial intelligence such as
   machine learning and pattern recognition have been used. The
   division of a given piece in harmonic significant segments is a
   crucial problem in the area of automated harmonic analysis, although
   it is still underrepresented in the literature. Also, most
   algorithms ignore relevant contextual clues and little has been done
-  towards stabilishing standard benchmarks. This paper presents a
+  towards establishing standard benchmarks. This paper presents a
   comprehensive survey of the existing literature on the subject.
 \end{abstract}
-
-
 
 \section{Introduction}
 \label{sec:introduction}
@@ -116,7 +114,7 @@ chord.
 
 Most systems
 \cite{prather96:harmonic,pardo02:algorithms,pardo99:automated,temperley99:modeling}
-represent notes as pitch classes, ignoring enarmonic information. This
+represent notes as pitch classes, ignoring enharmonic information. This
 is somewhat emphasized by the fact that MIDI or MIDI-like input is
 used
 \cite{pardo99:automated,pardo02:algorithms,wang97:generating,raphael03:harmonic}.
@@ -190,7 +188,7 @@ ambiguities, non-regularity of harmony, and non-universality of
 harmony rules. Pardo et al. \cite{pardo99:automated} classify error
 frequencies, most of them related to harmonic context,
 specifically non-chord notes and cadence recognition. They agree that
-a deeper understanding of voice leading and knowledge about neighbour
+a deeper understanding of voice leading and knowledge about neighbor
 chords would help adjusting chord-label weights.
 
 \section{Proposed Solutions}
@@ -241,10 +239,10 @@ of the arpeggio as a different chord
 
 Back-propagating neural networks are used by T'sui
 \cite{tsui02:_harmon_analy_using_neural_networ} with good results,
-analysing bach chorales with over 90\% efficiency. A hidden markov
+analyzing bach chorales with over 90\% efficiency. A hidden markov
 model is employed by Raphael \cite{raphael03:harmonic} and Noland and
 Sandler \cite{noland.sandler:key}, with over 91\% accuracy for key
-estimation. A bayesian model is used by Temperley
+estimation. A Bayesian model is used by Temperley
 \cite{temperley04:bayesian} for key estimation with 86.5\% accuracy.
 
 \section{Segmentation}
@@ -282,12 +280,12 @@ ones that better match chord templates.
 Pardo states that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
 \cite{pardo02:algorithms} before his paper. This lack of data in the
-literature makes it dificult to compare different systems. Also, there
+literature makes it difficult to compare different systems. Also, there
 aren't standard benchmarks to compare different algorithms and
-results. In fact, only Pardo \cite{pardo00:automated} and Barthelemy
+results. In fact, only Pardo \cite{pardo00:automated} and Barthèlemy
 \cite{barthelemy01:figured} published specific comparisons between
 theirs and other's results. Pardo compares his results with
-\cite{temperley99:modeling} while Barthelemy compares his model
+\cite{temperley99:modeling} while Barthèlemy compares his model
 against \cite{maxwell92:expert}, \cite{pardo99:automated} and
 \cite{temperley96:algorithm}. However, they are based on the results
 published in papers and not on results from direct implementations,
