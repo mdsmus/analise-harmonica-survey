@@ -1,0 +1,76 @@
+This paper gives an overview of recent works for analyzing
+automatically harmonic structure from annotated scores. I am a bit
+confused by the structure of the paper: for example, the part 2 says
+that the addressed problem can be separated in three parts, but they
+do not follow afterwards (the next part talks about music
+representation; the problems are effectively tackled at the part 5 and
+6). As this is a survey-type of paper, this is particularly
+concerning. I do not know much about the problem this survey wants to
+give an overview of, and I am not sure I know much more after reading
+it.
+
+ 	
+A four-page paper (2 pages, discounting introduction and bibliography)
+doesn't seem to offer enough depth to fully characterize the
+significant body of literature on automated harmonic analysis
+techniques that you summarize. While you highlight the relevant
+problems that must be solved in order to convert symbolic music
+information (score, MIDI, etc.) into a transcribed chord sequence, I
+found myself wanting more explanations in each section: the details
+provided were not enough to well describe the areas I was familiar
+with nor to fully explain those that I knew less about. Given such
+scant information, the summary of the strengths and weaknesses of each
+technique and the conclusions about the overall state of the field
+were vague and hard to appreciate. It seems that your bibliography is
+comprehensive and well researched so, if you believe that the field
+has a need for a summary paper like this, I would recommend revising
+this paper into a longer, more expansive format.
+
+ 	
+A SURVEY OF AUTOMATED HARMONIC ANALYSIS TECHNIQUES The paper attempts
+to provide a comprehensive survey of automated harmonic analysis
+techniques. Although the authors correctly identify some of the
+problems and shortcomings in automated harmonic analysis methods, in
+my opinion, the paper falls short of fulfilling its goals.
+Explanations of problems in harmonic analysis and summarizations of
+existing work are too brief and not sufficiently descriptive. There
+are some grammatical errors and typos, but those aside, there are many
+obscure sentences that make it hard to read. I unfortunately don¡¯t
+think the contribution of this paper is sufficient to warrant
+publication at ICMC. I would recommend extending the length and
+incorporating some form of comparison of the existing methods to make
+it publishable elsewhere. The following references also come to mind:
+A Generative Theory of Tonal Music, Lerdahl and Jackendoff Tonal Pitch
+Space, Lerdahl Some points to improve readability: It seems more
+appropriate to reference papers with multiple authors using all their
+names or using et al. Section 1 paragraph 1 ¡°¡­query-by-humming¡­¡±
+reference [27] is not really a query by humming paper it attempts to
+solve the polyphonic ¡°query by audio example¡± problem. Although it is
+possible to gather multiple people to sing polyphonic queries this is
+impractical and usually not how query-by-humming is understood. Para 2
+line -2 musical -> music para -1 line -4 focus -> focuses Section 2
+Para 1 line 3 piece in -> piece into Section 3 Para 4 line1 ¡°where
+developed to keep the characteristics of tonal music¡± Where -> were
+What does keep the characteristics of tonal music mean? Section 4 para
+1 line 3 if is -> if it is para 2 line -1 ¡°It assumes that every
+non-chord note is followed by a conjunct movement which is not always
+true.¡± Do you mean that the assumption is not true. If so, please
+rephrase. Para -1 line 4 ¡°classify error frequencies¡± please rephrase.
+Section 5 para 1 line 3 ¡°These may be subdivided in the expert-system
+approach, concerned with computerized representation of harmonic
+rules; and the statistical approach, that deduces said rules from
+probabilistic models.¡± I can¡¯t decipher this sentence. Please
+rephrase. Section 5.1 Para 1 line 3 Musical - music Section 5.2 Para 1
+¡°While not specifically addressing the problem of musical context,
+statistical models differ from their rule-based counterparts by
+considering this information implicitly.¡± Which information? Para 1
+line 3 ¡°This is accomplished by inference of implicit information from
+already harmonized scores during training.¡± What does inference of
+implicit information mean? Para 1 line 7 ¡°to mistakenly analyze a
+piece¡± To make errors while analyzing a piece Section 6 Para 1 line 1
+¡°The division of a given piece in harmonic significant segments is a
+crucial problem in the area of automated harmonic analysis, although
+underrepresented in the literature. What is the definition of a
+harmonically significant segment ? Do you mean sections within chord
+boundaries ? Last section last para ¡°are not meaningful works¡± ->
+works do not exist.
