@@ -33,29 +33,29 @@
 \label{sec:introduction}
 
 Music information retrieval has received increasing attention
-recently. Some research focus on music retrieval by query-by-humming
-\cite{hu02comparison,pickens02:polyphonic}, development of tools for
-digital libraries
-\cite{clausen00:proms,olson03:chopin,fujinaga02:digital}, detection of
-musical patterns
-\cite{lartillot-nakamura03:discovering,dannenberg02:pattern,lartillot02:integrating}
-that may help, among other things, to identify musical styles
-\cite{dixon03:classification,pampalk03:exploring,rauber02:using}, and
-in problems related to musical representation
-\cite{lee02:representing,good00:representing,rol00:xml4mir}.
+recently. Some research focus on music retrieval by polyphonic
+query-by-audio \cite{hu02comparison, pickens02:polyphonic},
+development of tools for digital libraries \cite{clausen00:proms,
+  olson03:chopin, fujinaga02:digital}, detection of musical patterns
+\cite{lartillot-nakamura03:discovering, dannenberg02:pattern,
+  lartillot02:integrating} that may help, among other things, to
+identify musical styles \cite{dixon03:classification,
+  pampalk03:exploring, rauber02:using}, and in problems related to
+musical representation \cite{lee02:representing, good00:representing,
+  rol00:xml4mir}.
 
 While the main goal in music information retrieval `` is not an
 understanding of music. It is not to develop a better theory of music,
 or even to analyze music. The goal is retrieval''
 \cite{pickens01:survey}, other researchers seek a better understanding
-of elements and musical processes through automatic analysis by
-computer. We agree with Mouton that ``only automatic analysis of a
-large corpus of tonal music may eventually provide us (the human) with
-insights on the very nature of tonal music'' \cite{mouton95:numeric}.
-Computer-based musical analysis is important because it can bring new
-insights in musical theory, in the same way as use of computer in vision
-and problem solving has brought new insights in these areas
-\cite{temperley99:modeling}.
+of elements and music processes through automatic analysis by
+computer. We agree with Mouton et al that ``only automatic analysis of
+a large corpus of tonal music may eventually provide us (the human)
+with insights on the very nature of tonal music''
+\cite{mouton95:numeric}.  Computer-based musical analysis is important
+because it can bring new insights in music theory, in the same way as
+use of computer in vision and problem solving has brought new insights
+in these areas \cite{temperley99:modeling}.
 
 There are many practical applications for automatic music analysis,
 among them arranging, detection of possible logical mistakes in scores,
@@ -73,11 +73,12 @@ types, or symbols in roman numerals indicating tonal function.
 
 This paper gives an overview of the current status of automated
 harmonic analysis. To our knowledge, there is no comprehensive survey
-on this subject. Scholz \cite{scholz05:funchal} offers a brief survey
-of the state of the art until 2001. Mouton \cite{mouton95:numeric} and
-Barthèlemy \cite{barthelemy01:figured} have a general but informative
-survey on the topic. This paper focus on the main problems and
-solutions of automated harmonic analysis with a discussion of their
+on this subject. Scholz et al. \cite{scholz05:funchal} offer a brief
+survey of the state of the art until 2001. Mouton et al.
+\cite{mouton95:numeric} and Barthèlemy et
+al. \cite{barthelemy01:figured} have general but informative surveys
+on the topic. This paper focuses on the main problems and solutions of
+automated harmonic analysis with a discussion of their
 effectiveness. Harmonic analysis from audio sources will be not
 approached.
 
@@ -86,7 +87,7 @@ approached.
 
 The problem of automated harmonic analysis might be understood by
 dividing it into three sub-problems. The first problem is to divide a
-given piece in segments with harmonic significance. The second is to
+given piece into segments with harmonic significance. The second is to
 label each segment with a chord name. The last problem is to assign a
 tonal function to each chord.
 
@@ -112,19 +113,19 @@ difference. For instance, in \cite{pardo02:algorithms} a German
 augmented sixth chord is mistakenly identified as a dominant seventh
 chord.
 
-Most systems
-\cite{prather96:harmonic,pardo02:algorithms,pardo99:automated,temperley99:modeling}
-represent notes as pitch classes, ignoring enharmonic information. This
-is somewhat emphasized by the fact that MIDI or MIDI-like input is
-used
-\cite{pardo99:automated,pardo02:algorithms,wang97:generating,raphael03:harmonic}.
-Pardo \cite{pardo02:algorithms,pardo99:automated} also ignores meter
-and all forms of context information with the intention to provide a
-basis for study of better algorithms.
+Most systems \cite{prather96:harmonic, pardo02:algorithms,
+  pardo99:automated, temperley99:modeling} represent notes as pitch
+classes, ignoring enharmonic information. This is somewhat emphasized
+by the fact that MIDI or MIDI-like input is used
+\cite{pardo99:automated, pardo02:algorithms, wang97:generating,
+  raphael03:harmonic}.  Pardo et al. \cite{pardo02:algorithms,
+  pardo99:automated} also ignore meter and all forms of contextual
+information with the intention to provide a basis for study of better
+algorithms.
 
-A few numeric representations for pitch
-\cite{hewlett92:base40,oliveira01:codificacao} where developed to keep
-the characteristics of tonal music. The one developed by Oliveira
+A few numeric representations for pitch \cite{hewlett92:base40,
+  oliveira01:codificacao} were developed to highlight tonal
+information in music. The one developed by Oliveira
 \cite{oliveira01:codificacao} is particularly elegant. This
 representation is not only capable of differentiating enharmonic notes
 (for instance, D$\sharp$ is represented by 7 and D$\flat$ by 91) but
@@ -133,12 +134,12 @@ inversion, and so on. It is modulo 96 based and can be easily
 converted to the more common module 12 based representation.
 
 The systems described in literature usually return information such as
-keys \cite{chai.vercoe:detection,noland.sandler:key}, chords
-\cite{temperley99:modeling,pardo02:algorithms}, figured bass
+keys \cite{chai.vercoe:detection, noland.sandler:key}, chords
+\cite{temperley99:modeling, pardo02:algorithms}, figured bass
 \cite{barthelemy01:figured}, or tonal function
-\cite{pachet00:computer,Ulrich77IJ}. Most systems, as those from
-\cite{pardo02:algorithms,pardo00:automated,temperley99:modeling}, use
-notation like A$\flat$7 for chords. The system described in
+\cite{pachet00:computer, Ulrich77IJ}. Most systems, as those from
+\cite{pardo02:algorithms, pardo00:automated, temperley99:modeling},
+use notation like A$\flat$7 for chords. The system described in
 \cite{pachet00:computer} outputs not only the chord names but some
 functions used in jazz harmony like ``modal borrowing'' and ``tritone
 substitution''. Ulrich \cite{Ulrich77IJ} also performs a functional
@@ -148,8 +149,9 @@ analysis of chords, indicating information such as ``tonic of G'' or
 Since the usual notation for chords is ambiguous some alternatives
 were proposed. Harte et al. notation \cite{harte.sandler.ea:symbolic}
 has tuples of chord intervals, like \texttt{c:(3,5)} for C major or
-\texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$m$^{7}_{9}$/A$\sharp$. Since this notation is too verbose Harte et
-al. use shorthands such as \texttt{d\#:min9/5}. Kroger et. al
+\texttt{d\#:(b3,5,b7,9)/5} for D$\sharp$m$^{7}_{9}$/A$\sharp$. 
+Since this notation is too verbose Harte et al. use shorthands 
+such as \texttt{d\#:min9/5}. Kroger et. al
 \cite{kroger06:processo} use a list with chord information in the
 format:\\
 \texttt{(<name> <type> <intervals> <inversion>)}\\
@@ -160,8 +162,8 @@ For instance, G7/B would be \texttt{(g major 7 1)}.
 
 In harmony some structures like non-chord notes are better understood
 in a particular context. For instance, a passing note is a non-chord
-note that only can be identified if is approached and left by step in
-the same direction, so it is only identifiable by considering
+note that only can be identified if it is approached and left by step
+in the same direction, so it is only identifiable by considering
 contextual information. Proper use of harmonic context helps to solve
 problems such as ambiguities in chord analysis, identification of
 non-chord notes, suspensions, and retardations.
@@ -174,19 +176,19 @@ define the best possible tonality for a chord. Finally, the automated
 harmonic analysis method developed by \cite{barthelemy01:figured} has
 a simple algorithm to process non-chord notes, often producing errors.
 It assumes that every non-chord note is followed by a conjunct
-movement which is not always true.
+movement. This assumption is not true, and may lead to errors.
 
 Some projects don't take harmonic context into account. Harte et al.
 \cite{harte.sandler.ea:symbolic} ignores key context in their model
-for chord labels. Pardo \cite{pardo99:automated,pardo02:algorithms}
-developed a set of algorithms for automated chordal analysis making
-minimal use of harmonic context.
+for chord labels. Pardo et al. \cite{pardo99:automated,
+  pardo02:algorithms} developed a set of algorithms for automated
+chordal analysis making minimal use of harmonic context.
 
 Barthèlemy et al. \cite{barthelemy01:figured} raise four issues
 related to harmonic context. Ornamental notes and incomplete harmony,
 ambiguities, non-regularity of harmony, and non-universality of
-harmony rules. Pardo et al. \cite{pardo99:automated} classify error
-frequencies, most of them related to harmonic context,
+harmony rules. Pardo et al. \cite{pardo99:automated} classify errors
+from their approach, most of them related to harmonic context,
 specifically non-chord notes and cadence recognition. They agree that
 a deeper understanding of voice leading and knowledge about neighbor
 chords would help adjusting chord-label weights.
@@ -196,62 +198,62 @@ chords would help adjusting chord-label weights.
 
 Many techniques from artificial intelligence, such as machine learning
 and pattern recognition have been used in automated harmonic analysis.
-These may be subdivided in the expert-system approach, concerned with
-computerized representation of harmonic rules; and the statistical
-approach, that deduces said rules from probabilistic models.
+These can be classified as either expert-systems or statistical
+models.
 
-\subsection{Expert System Approaches}
+\subsection{Expert Systems}
 \label{sec:expert-syst-appr}
 
 Since expert systems abound in the field of artificial intelligence it
 is only natural that they should be the first attempt at codifying
-musical theory in a format proper for automated analysis. 
+music theory in a format proper for automated analysis. 
 
 Pattern matching over chord templates is used in
 \cite{prather96:harmonic}, \cite{pardo02:algorithms}, and
-\cite{pardo99:automated}. Barthèlemy \cite{barthelemy01:figured} uses
-a somewhat more complex model, that can ignore ornamental notes. Wang
-\cite{wang97:generating} uses pattern matching in three passes and
-assumes that no modulation happens. Temperley
-\cite{temperley99:modeling} uses a sophisticated preference-rule
+\cite{pardo99:automated}. Barthèlemy et
+al. \cite{barthelemy01:figured} use a somewhat more complex model,
+that can ignore ornamental notes. Wang et al.
+\cite{wang97:generating} use pattern matching in three passes and
+assumes that no modulation happens. Temperley et al.
+\cite{temperley99:modeling} use a sophisticated preference-rule
 system to identify the roots of the chords in a piece, but it avoids
 the problems of tonality detection and harmonic function
 identification.
 
-Barthèlemy \cite{barthelemy01:figured} and Mouton
+Barthèlemy et al. \cite{barthelemy01:figured} and Mouton et al.
 \cite{mouton95:numeric} use a greedy algorithm for tonality
 recognition that is based on the fact that every chord can be only
 part of a few keys.
 
-\subsection{Statistical Approaches}
+\subsection{Statistical Models}
 \label{sec:stat-appr}
 
 While not specifically addressing the problem of musical context,
 statistical models differ from their rule-based counterparts by
-considering this information implicitly. This is accomplished by
-inference of implicit information from already harmonized scores
-during training. Too much sensitivity to the training data might be
-problematic, since it may lead the algorithm to mistakenly analyze a
-piece. For instance, after being trained on Bach chorales if the
-system is exposed to an arpeggiated melody it might classify each note
-of the arpeggio as a different chord
+considering harmonic information implicitly. This is accomplished by
+inference of this information from already harmonized scores during
+training. Too much sensitivity to the training data might be
+problematic, since it may lead the algorithm to make errors when
+analyzing a piece. For instance, after being trained on Bach chorales
+if the system is exposed to an arpeggiated melody it might classify
+each note of the arpeggio as a different chord
 \cite{tsui02:_harmon_analy_using_neural_networ}.
 
 Back-propagating neural networks are used by T'sui
 \cite{tsui02:_harmon_analy_using_neural_networ} with good results,
 analyzing bach chorales with over 90\% efficiency. A hidden markov
-model is employed by Raphael \cite{raphael03:harmonic} and Noland and
-Sandler \cite{noland.sandler:key}, with over 91\% accuracy for key
-estimation. A Bayesian model is used by Temperley
+model is employed by Raphael et al. \cite{raphael03:harmonic} and
+Noland and Sandler \cite{noland.sandler:key}, with over 91\% accuracy
+for key estimation. A Bayesian model is used by Temperley et al.
 \cite{temperley04:bayesian} for key estimation with 86.5\% accuracy.
 
 \section{Segmentation}
 \label{sec:segmentation}
 
-The division of a given piece in harmonic significant segments is a
-crucial problem in the area of automated harmonic analysis, although
-underrepresented in the literature
-\cite{pardo02:algorithms,byrd02:problems}.
+The division of a given piece in harmonic significant segments -
+groups of notes within chord boundaries - is a crucial problem in the
+area of automated harmonic analysis, although underrepresented in the
+literature \cite{pardo02:algorithms, byrd02:problems}.
 
 The task of designing an effective algorithmic solution for the
 problem of segmentation is difficult because the segmentation problem
@@ -263,34 +265,35 @@ number of notes. The number of possible segmentations is approximately
 two to the power of the number of partition points. To reduce the
 space of possible partitions one must consider the harmonic context of
 each segment, which is difficult. Most systems make little use of
-proper context, according to Barthèlemy \cite{barthelemy01:figured}.
+proper context, according to Barthèlemy et
+al. \cite{barthelemy01:figured}.
 
 Prather \cite{prather96:harmonic} approaches the problem in a
 simplified fashion, segmenting only inside measures. Therefore a chord
-is split if it spans more than a bar. Barthèlemy
-\cite{barthelemy01:figured} segments bottom-up, starting from minimal
-segments and merging them in a larger segment if possible. Pardo
-\cite{pardo99:automated,pardo02:algorithms} performs segmentation
+is split if it spans more than a bar. Barthèlemy et al.
+\cite{barthelemy01:figured} segment bottom-up, starting from minimal
+segments and merging them in a larger segment if possible. Pardo et
+al.  \cite{pardo99:automated, pardo02:algorithms} perform segmentation
 backwards, by comparing all possible segmentations and choosing the
 ones that better match chord templates.
 
 \section{Tests and benchmarks}
 \label{sec:tests-benchmarks}
 
-Pardo states that ``no researchers have published statistical
+Pardo et al. state that ``no researchers have published statistical
 performance results on a system designed to analyze tonal music''
-\cite{pardo02:algorithms} before his paper. This lack of data in the
-literature makes it difficult to compare different systems. Also, there
-aren't standard benchmarks to compare different algorithms and
-results. In fact, only Pardo \cite{pardo00:automated} and Barthèlemy
-\cite{barthelemy01:figured} published specific comparisons between
-theirs and other's results. Pardo compares his results with
-\cite{temperley99:modeling} while Barthèlemy compares his model
-against \cite{maxwell92:expert}, \cite{pardo99:automated} and
+\cite{pardo02:algorithms} before their paper. This lack of data in
+literature makes it difficult to compare different systems. Also,
+there aren't standard benchmarks to compare different algorithms and
+results. In fact, only Pardo et al. \cite{pardo00:automated} and
+Barthèlemy et al. \cite{barthelemy01:figured} published specific
+comparisons between theirs and other's results. Pardo compares his
+results with \cite{temperley99:modeling} while Barthèlemy compares his
+model against \cite{maxwell92:expert}, \cite{pardo99:automated} and
 \cite{temperley96:algorithm}. However, they are based on the results
 published in papers and not on results from direct implementations,
 which means that only the examples published by the authors can be
-compared. 
+compared.
 
 \section{Conclusion and discussion}
 \label{sec:concl-disc}
@@ -311,7 +314,7 @@ models such as set theory (or post-tonal theory), it is not clear in
 literature if a mathematical approach would help in harmonic analysis.
 Taneyev \cite{taneyev62:counterpoint} has used mathematics extensively
 in his counterpoint treatise with a good degree of success. As far as
-we know, there are not meaningful works in the literature of automatic
+we know, meaningful works do not exist in the literature of automatic
 harmonic analysis where a mathematical model such as set theory is
 used extensively.
 
@@ -320,9 +323,3 @@ used extensively.
 \end{document}
  
 http://www.aaue.dk/~niklas/ICMC/?page_id=3
-
-\nota{para passos: não consigo ver aonde}
-Barthèlemy \cite{barthelemy01:figured} claims to distinguish
-enharmonic notes, even though the exact representation used is not
-discussed.
-
