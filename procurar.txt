@@ -1,0 +1,18 @@
+http://www.inf.ufrgs.br/~engel/
+
+BECKENKAMP, F. G., ENGEL, P. M.
+A Proposal Of A Harmonic Classification Artificial Intelligence Model In: IJCAI 95- International Joint Conference on Artificial Intelligence, 1995, Montréal.
+  1995 International Joint Conference on Artificial Intelligence. Montréal, CANADA: , 1995. p.65 – 69
+
+BORGES, N. C. K., ENGEL, P. M., GEYER, C. F. R.
+Um Estudo de Paralelismo Em Redes Backpropagation In: II Simpósio Brasileiro de Redes Neurais, 1995, São Carlos.
+  II Simposio Brasileiro de Redes Neurais. São Carlos, BRASIL: Sociedade Brasileira de Computacao, 1995. v.1.
+
+BECKENKAMP, F. G., ENGEL, P. M.
+Um Modelo Inteligente Para Classificacao Harmonica Tonal In: III Simpósio Brasileiro de Computacão e Música, 1995, Canela.
+  II Simposio Brasileiro de Computacao e Musica. Canela, BRASIL: , 1995.
+
+BECKENKAMP, F. G., ENGEL, P. M.
+A Connectionist Model For Chord Classification In: I Simpósio Brasileiro de Computação e Música, 1994, Belo Horizonte.
+  I Simposio Brasileiro de Computacao e Musica. BRASIL: Sociedade Brasileira de Computacao, 1994.
+
