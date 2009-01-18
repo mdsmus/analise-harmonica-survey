@@ -1,8 +1,5 @@
 NAME = analise-harmonica-survey
--include /usr/share/latex-mk/latex.gmk
--include /usr/local/share/latex-mk/latex.gmk
 
-default: ps
+OTHER += $(LILY_EPS) $(SVG_EPS) $(GNUPLOT_EPS)
 
-push: ps
-	git push
+include ~/.latexmk
